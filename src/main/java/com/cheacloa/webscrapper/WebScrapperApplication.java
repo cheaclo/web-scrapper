@@ -10,10 +10,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
-public class WebscrapperApplication {
+public class WebScrapperApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(WebscrapperApplication.class, args);
+		SpringApplication.run(WebScrapperApplication.class, args);
 
 		System.setProperty("webdriver.opera.driver", "src\\main\\resources\\drivers\\operadriver_win64\\operadriver.exe");
 		WebDriver driver = new OperaDriver();
