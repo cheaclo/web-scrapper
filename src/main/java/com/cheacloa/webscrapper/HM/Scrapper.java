@@ -11,6 +11,7 @@ import java.util.List;
 
 public abstract class Scrapper {
     private final String HM_URL_PARAMS = "?sort=stock&image-size=small&image=stillLife&offset=0&page-size=";
+    private final String PRODUCT_CLASSNAME= "hm-product-item";
     private final String TITLE_SELECTOR = ".item-details > h3 > a";
     private final String PRICE_SELECTOR = ".item-details > strong > span.price.sale";
     private final String REGULAR_PRICE_SELECTOR = ".item-details > strong > span.price.regular";
@@ -28,8 +29,8 @@ public abstract class Scrapper {
 
         String allHMSalesURL = url + HM_URL_PARAMS + MAX_NUMBER_OF_PRODUCTS;
         driver.get(allHMSalesURL);
-        //System.out.println(driver.getPageSource());
-        List<WebElement> elements = driver.findElements(By.className("hm-product-item"));
+
+        List<WebElement> elements = driver.findElements(By.className(PRODUCT_CLASSNAME));
 
         for (WebElement element : elements) {
             String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getText();

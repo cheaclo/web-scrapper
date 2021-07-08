@@ -21,9 +21,9 @@ public class LadiesProductsRetriever {
         List<Product> products = new ArrayList<>();
 
         products.addAll(accessoriesScrapper.run(driver));
-        System.out.println(products.size());
+        System.out.println(products.size());  //LOG
         products.addAll(divideScrapper.run(driver));
-        System.out.println(products.size());
+        System.out.println(products.size()); //LOG
 
         return products;
     }
