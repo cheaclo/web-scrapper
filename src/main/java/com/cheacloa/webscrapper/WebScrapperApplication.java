@@ -1,25 +1,20 @@
 package com.cheacloa.webscrapper;
 
-import com.cheacloa.webscrapper.HM.HMScrapper;
+import com.cheacloa.webscrapper.HM.ProductsRetriever;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import org.openqa.selenium.*;
-import org.openqa.selenium.opera.OperaDriver;
 import org.springframework.context.annotation.Bean;
-
-import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 public class WebScrapperApplication {
 	@Autowired
-	private HMScrapper scraper;
+	private ProductsRetriever scraper;
 
 	@Bean
-	public HMScrapper getScraper() {
-		return new HMScrapper();
+	public ProductsRetriever getScraper() {
+		return new ProductsRetriever();
 	}
 
 	public static void main(String[] args) {

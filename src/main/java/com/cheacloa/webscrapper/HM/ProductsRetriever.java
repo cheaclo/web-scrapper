@@ -4,6 +4,7 @@ import com.cheacloa.webscrapper.HM.woman.AccessoriesScrapper;
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
@@ -11,9 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class HMScrapper {
+public class ProductsRetriever {
     @Value("${driver.path}")
     private String DRIVER_PATH;
+
+    @Autowired
+    private LadiesProductsRetriever ladiesProductsRetriever;
 
     /* Only for test purposes, will be removed */
     @PostConstruct
@@ -27,9 +31,11 @@ public class HMScrapper {
         List<Product> products = new ArrayList<>();
         System.setProperty("webdriver.opera.driver", DRIVER_PATH);
         WebDriver driver = new OperaDriver();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        new AccessoriesScrapper().run(driver);
+        List<Product> ladies = ladiesProductsRetriever.run(driver);
+
+        products.addAll(ladies);
 
         driver.close();
         System.out.println("[INFO] Hm scrapping finished"); //LOG
