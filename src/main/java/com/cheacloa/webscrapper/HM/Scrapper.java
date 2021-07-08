@@ -15,31 +15,20 @@ public abstract class Scrapper {
     private final String PRICE_SELECTOR = ".item-details > strong > span.price.sale";
     private final String REGULAR_PRICE_SELECTOR = ".item-details > strong > span.price.regular";
     private final String IMAGE_SRC_SELECTOR = ".image-container > a > img";
+    private final int MAX_NUMBER_OF_PRODUCTS = 10000;
 
     protected String numberOfProductsSelector;
     protected String url;
 
-    private WebDriver driver;
     protected Product.Type type;
     protected List<Product.Category> categories;
 
-    private int getNumberOfProducts() {
-        int numberOfProducts;
-
-        driver.navigate().to(url);
-        WebElement numberOfProductsElement = driver.findElement(By.cssSelector(numberOfProductsSelector));
-        numberOfProducts = extractInt(numberOfProductsElement.getText());
-
-        return numberOfProducts;
-    }
-
     public List<Product> run(WebDriver driver) {
-        this.driver = driver;
-        int numberOfProducts = getNumberOfProducts();
         List<Product> products = new ArrayList<>();
 
-        String allHMSalesURL = url + HM_URL_PARAMS + numberOfProducts;
-        driver.navigate().to(allHMSalesURL);
+        String allHMSalesURL = url + HM_URL_PARAMS + MAX_NUMBER_OF_PRODUCTS;
+        driver.get(allHMSalesURL);
+        //System.out.println(driver.getPageSource());
         List<WebElement> elements = driver.findElements(By.className("hm-product-item"));
 
         for (WebElement element : elements) {
@@ -60,10 +49,6 @@ public abstract class Scrapper {
         }
 
         return products;
-    }
-
-    private int extractInt(String arg) {
-        return Integer.parseInt(arg.replaceAll("[^0-9.]+", " ").trim());
     }
 
     private double extractDouble(String arg) {

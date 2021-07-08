@@ -1,9 +1,9 @@
 package com.cheacloa.webscrapper.HM;
 
-import com.cheacloa.webscrapper.HM.woman.AccessoriesScrapper;
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -29,9 +29,12 @@ public class ProductsRetriever {
         System.out.println("[INFO] Hm scrapping started"); //LOG
 
         List<Product> products = new ArrayList<>();
-        System.setProperty("webdriver.opera.driver", DRIVER_PATH);
-        WebDriver driver = new OperaDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        String userAgent = "user-agent={0}Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36";
+
+        System.setProperty("webdriver.chrome.driver", DRIVER_PATH);
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless", userAgent);
+        WebDriver driver = new ChromeDriver(options);
 
         List<Product> ladies = ladiesProductsRetriever.run(driver);
 
