@@ -1,5 +1,6 @@
 package com.cheacloa.webscrapper.HM;
 
+import com.cheacloa.webscrapper.HM.woman.AccessoriesScrapper;
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.opera.OperaDriver;
@@ -26,7 +27,9 @@ public class HMScrapper {
         List<Product> products = new ArrayList<>();
         System.setProperty("webdriver.opera.driver", DRIVER_PATH);
         WebDriver driver = new OperaDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);    
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+
+        new AccessoriesScrapper().run(driver);
 
         driver.close();
         System.out.println("[INFO] Hm scrapping finished"); //LOG

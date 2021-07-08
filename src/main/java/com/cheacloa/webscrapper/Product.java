@@ -12,7 +12,7 @@ public class Product {
     private double price;
     private double regularPrice;
     private String shopHref;
-    private String imageHref;
+    private String imageSrc;
 
     public enum Category {
         ACCESSORIES,
@@ -49,12 +49,12 @@ public class Product {
     }
     private Type type;
 
-    public Product(String title, double price, double regularPrice, String shopHref, String imageHref, List<Category> categories, Type type) {
+    public Product(String title, double price, double regularPrice, String shopHref, String imageSrc, List<Category> categories, Type type) {
         this.title = title;
         this.price = price;
         this.regularPrice = regularPrice;
         this.shopHref = shopHref;
-        this.imageHref = imageHref;
+        this.imageSrc = imageSrc;
         this.categories = categories;
         this.type = type;
     }
@@ -66,7 +66,7 @@ public class Product {
                 ", price=" + price +
                 ", regularPrice=" + regularPrice +
                 ", shopHref='" + shopHref + '\'' +
-                ", imageHref='" + imageHref + '\'' +
+                ", imageSrc='" + imageSrc + '\'' +
                 ", categories=" + categories +
                 ", type=" + type +
                 '}';
