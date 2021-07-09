@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public abstract class Scrapper {
+    private int SCRAP_LIMIT = 10;
     private final String HM_URL_PARAMS = "?sort=stock&image-size=small&image=stillLife&offset=0&page-size=";
     private final String PRODUCT_CLASSNAME= "hm-product-item";
     private final String TITLE_SELECTOR = ".item-details > h3 > a";
@@ -18,7 +19,6 @@ public abstract class Scrapper {
     private final String IMAGE_SRC_SELECTOR = ".image-container > a > img";
     private final int MAX_NUMBER_OF_PRODUCTS = 10000;
 
-    protected String numberOfProductsSelector;
     protected String url;
 
     protected Product.Type type;
@@ -27,7 +27,7 @@ public abstract class Scrapper {
     public List<Product> run(WebDriver driver) {
         List<Product> products = new ArrayList<>();
 
-        String allHMSalesURL = url + HM_URL_PARAMS + MAX_NUMBER_OF_PRODUCTS;
+        String allHMSalesURL = url + HM_URL_PARAMS + SCRAP_LIMIT; //temporary
         driver.get(allHMSalesURL);
 
         List<WebElement> elements = driver.findElements(By.className(PRODUCT_CLASSNAME));
@@ -37,9 +37,7 @@ public abstract class Scrapper {
             String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getText();
             String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getText();
             String shopHref = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("href");
-            String imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("src");
-            if (imageSrc.equals(""))
-                imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("data-altimage");
+            String imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("data-altimage");
             products.add(new Product(title,
                     extractDouble(price),
                     extractDouble(regularPrice),

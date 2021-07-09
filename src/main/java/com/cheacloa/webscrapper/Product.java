@@ -17,7 +17,6 @@ public class Product {
     public enum Category {
         ACCESSORIES,
         BABIES,
-        TRENDS,
         CARDIGANS_AND_JUMPERS,
         DRESSES_AND_JUMPSUITS,
         EXTRA_DISCOUNTS,
@@ -35,6 +34,7 @@ public class Product {
         SUITS,
         SWEATSHIRTS_HOODIES_AND_SWEATERS,
         SWIMWEAR,
+        TRENDS,
         TSHIRTS_AND_TOPS,
         TROUSERS_AND_LEGGINGS,
         UNDERWEAR_AND_NIGHTWEAR
