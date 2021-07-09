@@ -17,6 +17,7 @@ public class Product {
     public enum Category {
         ACCESSORIES,
         BABIES,
+        BLAZERS,
         CARDIGANS_AND_JUMPERS,
         DRESSES_AND_JUMPSUITS,
         EXTRA_DISCOUNTS,
