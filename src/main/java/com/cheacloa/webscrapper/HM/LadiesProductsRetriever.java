@@ -11,34 +11,28 @@ import java.util.List;
 
 @Component
 public class LadiesProductsRetriever {
-    @Autowired
-    private AccessoriesScrapper accessoriesScrapper;
-    @Autowired
-    private DivideScrapper divideScrapper;
-    @Autowired
-    private TrendsScrapper trendsScrapper;
-    @Autowired
-    private DressesScrapper dressesScrapper;
-    @Autowired
-    private SwimwearScrapper swimwearScrapper;
-    @Autowired
-    private ShirtsAndBlousesScrapper shirtsAndBlousesScrapper;
+    @Autowired private AccessoriesScrapper accessoriesScrapper;
+    @Autowired private DivideScrapper divideScrapper;
+    @Autowired private TrendsScrapper trendsScrapper;
+    @Autowired private DressesScrapper dressesScrapper;
+    @Autowired private SwimwearScrapper swimwearScrapper;
+    @Autowired private ShirtsAndBlousesScrapper shirtsAndBlousesScrapper;
+    @Autowired private TopsScrapper topsScrapper;
+    @Autowired private KnitwearScrapper knitwearScrapper;
+    @Autowired private CardigansAndJumpers cardigansAndJumpers;
 
     public List<Product> run(WebDriver driver) {
         List<Product> products = new ArrayList<>();
 
-        products.addAll(accessoriesScrapper.run(driver));
-        System.out.println(products.size());  //LOG
-        products.addAll(divideScrapper.run(driver));
-        System.out.println(products.size()); //LOG
-        products.addAll(trendsScrapper.run(driver));
-        System.out.println(products.size()); //LOG
-        products.addAll(dressesScrapper.run(driver));
-        System.out.println(products.size());  //LOG
-        products.addAll(swimwearScrapper.run(driver));
-        System.out.println(products.size()); //LOG
-        products.addAll(shirtsAndBlousesScrapper.run(driver));
-        System.out.println(products.size()); //LOG
+        products.addAll(accessoriesScrapper.run(driver)); System.out.println(products.size());  //LOG
+        products.addAll(divideScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(trendsScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(dressesScrapper.run(driver)); System.out.println(products.size());  //LOG
+        products.addAll(swimwearScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(shirtsAndBlousesScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(topsScrapper.run(driver)); System.out.println(products.size());  //LOG
+        products.addAll(knitwearScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(cardigansAndJumpers.run(driver)); System.out.println(products.size()); //LOG
 
         return products;
     }
