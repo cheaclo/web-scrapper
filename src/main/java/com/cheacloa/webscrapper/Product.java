@@ -28,7 +28,7 @@ public class Product {
         POLO_SHIRTS,
         SHOES,
         SHIRTS_AND_BLOUSES,
-        SHIRTS_AND_SHORTS,
+        SKIRTS_AND_SHORTS,
         SPORTS,
         SOCKS,
         SUITS,
