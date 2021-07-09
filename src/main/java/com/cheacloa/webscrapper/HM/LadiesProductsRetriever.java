@@ -35,6 +35,9 @@ public class LadiesProductsRetriever {
     @Autowired private SocksAndTightsScrapper socksAndTightsScrapper;
     @Autowired private SportScrapper sportScrapper;
     @Autowired private PlusScrapper plusScrapper;
+    @Autowired private MaternityWearScrapper maternityWearScrapper;
+    @Autowired private ExtendedSizesScrapper extendedSizesScrapper;
+    @Autowired private PremiumSelectionScrapper premiumSelectionScrapper;
 
     public List<Product> run(WebDriver driver) {
         List<Product> products = new ArrayList<>();
@@ -62,7 +65,10 @@ public class LadiesProductsRetriever {
         products.addAll(shortsScrapper.run(driver)); System.out.println(products.size()); //LOG
         products.addAll(socksAndTightsScrapper.run(driver)); System.out.println(products.size());  //LOG
         products.addAll(sportScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(plusScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(plusScrapper.run(driver)); System.out.println(products.size()); //LOG\
+        products.addAll(maternityWearScrapper.run(driver)); System.out.println(products.size());  //LOG
+        products.addAll(extendedSizesScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(premiumSelectionScrapper.run(driver)); System.out.println(products.size()); //LOG
 
         return products;
     }
