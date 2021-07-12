@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -29,7 +30,7 @@ public class ProductsRetriever {
     public List<Product> run() {
         System.out.println("[INFO] Hm scrapping started"); //LOG
 
-        List<Product> products = new ArrayList<>();
+        List<Product> products = new LinkedList<>();
         String userAgent = "user-agent={0}Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.50 Safari/537.36";
         HashMap<String, Object> prefs = new HashMap<>();
         // Prevent driver from loading the images - time saving

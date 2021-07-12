@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Component
@@ -40,35 +41,35 @@ public class LadiesProductsRetriever {
     @Autowired private PremiumSelectionScrapper premiumSelectionScrapper;
 
     public List<Product> run(WebDriver driver) {
-        List<Product> products = new ArrayList<>();
+        List<Product> products = new LinkedList<>();
 
-        products.addAll(accessoriesScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(divideScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(trendsScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(dressesScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(swimwearScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(shirtsAndBlousesScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(topsScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(knitwearScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(cardigansAndJumpers.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(blazersAndWaistcoatsScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(jacketsAndCoatsScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(sweatshirtsAndHoodiesScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(trousersScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(jeansScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(jumpsuitsScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(skirtsScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(shoesScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(basicsScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(lingerieScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(nightwearAndLoungewearScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(shortsScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(socksAndTightsScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(sportScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(plusScrapper.run(driver)); System.out.println(products.size()); //LOG\
-        products.addAll(maternityWearScrapper.run(driver)); System.out.println(products.size());  //LOG
-        products.addAll(extendedSizesScrapper.run(driver)); System.out.println(products.size()); //LOG
-        products.addAll(premiumSelectionScrapper.run(driver)); System.out.println(products.size()); //LOG
+        products.addAll(accessoriesScrapper.run(driver));
+        products.addAll(divideScrapper.run(driver));
+        products.addAll(trendsScrapper.run(driver));
+        products.addAll(dressesScrapper.run(driver));
+        products.addAll(swimwearScrapper.run(driver));
+        products.addAll(shirtsAndBlousesScrapper.run(driver));
+        products.addAll(topsScrapper.run(driver));
+        products.addAll(knitwearScrapper.run(driver));
+        products.addAll(cardigansAndJumpers.run(driver));
+        products.addAll(blazersAndWaistcoatsScrapper.run(driver));
+        products.addAll(jacketsAndCoatsScrapper.run(driver));
+        products.addAll(sweatshirtsAndHoodiesScrapper.run(driver));
+        products.addAll(trousersScrapper.run(driver));
+        products.addAll(jeansScrapper.run(driver));
+        products.addAll(jumpsuitsScrapper.run(driver));
+        products.addAll(skirtsScrapper.run(driver));
+        products.addAll(shoesScrapper.run(driver));
+        products.addAll(basicsScrapper.run(driver));
+        products.addAll(lingerieScrapper.run(driver));
+        products.addAll(nightwearAndLoungewearScrapper.run(driver));
+        products.addAll(shortsScrapper.run(driver));
+        products.addAll(socksAndTightsScrapper.run(driver));
+        products.addAll(sportScrapper.run(driver));
+        products.addAll(plusScrapper.run(driver));
+        products.addAll(maternityWearScrapper.run(driver));
+        products.addAll(extendedSizesScrapper.run(driver));
+        products.addAll(premiumSelectionScrapper.run(driver));
 
         return products;
     }

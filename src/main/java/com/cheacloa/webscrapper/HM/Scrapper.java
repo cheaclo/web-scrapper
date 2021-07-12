@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class Scrapper {
@@ -25,7 +26,7 @@ public abstract class Scrapper {
     protected List<Product.Category> categories;
 
     public List<Product> run(WebDriver driver) {
-        List<Product> products = new ArrayList<>();
+        List<Product> products = new LinkedList<>();
 
         String allHMSalesURL = url + HM_URL_PARAMS + SCRAP_LIMIT; //temporary
         driver.get(allHMSalesURL);
@@ -47,6 +48,7 @@ public abstract class Scrapper {
                     Product.Type.WOMAN));
         }
 
+        System.out.println(products.size()); //LOG
         return products;
     }
 
