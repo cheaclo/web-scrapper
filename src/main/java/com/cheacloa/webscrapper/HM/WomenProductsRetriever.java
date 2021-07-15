@@ -10,7 +10,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class WomenProductsRetriever {
+public class WomenProductsRetriever implements Retriever {
     @Autowired private AccessoriesScrapper accessoriesScrapper;
     @Autowired private DivideScrapper divideScrapper;
     @Autowired private TrendsScrapper trendsScrapper;
