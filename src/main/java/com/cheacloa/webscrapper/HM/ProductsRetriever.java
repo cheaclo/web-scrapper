@@ -4,30 +4,35 @@ import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.LinkedList;
 import java.util.List;
 
-@RestController
+@Component
 public class ProductsRetriever {
     @Autowired
-    private LadiesProductsRetriever ladiesProductsRetriever;
+    private WomenProductsRetriever ladiesProductsRetriever;
 
     @Autowired
     private CustomWebDriver customWebDriver;
 
-    @GetMapping("/hm")
+    /* temporary solution */
+    @PostConstruct
+    public void postConstruct() {
+        run();
+    }
+
     public List<Product> run() {
         System.out.println("[INFO] Hm scrapping started"); //LOG
 
         WebDriver driver = customWebDriver.getDriver();
         List<Product> products = new LinkedList<>();
 
-        List<Product> ladies = ladiesProductsRetriever.run(driver);
+        List<Product> women = ladiesProductsRetriever.run(driver);
 
-        products.addAll(ladies);
+        products.addAll(women);
 
         driver.close();
         System.out.println("[INFO] Hm scrapping finished"); //LOG

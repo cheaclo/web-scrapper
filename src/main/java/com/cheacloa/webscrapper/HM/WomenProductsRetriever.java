@@ -6,12 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class LadiesProductsRetriever {
+public class WomenProductsRetriever {
     @Autowired private AccessoriesScrapper accessoriesScrapper;
     @Autowired private DivideScrapper divideScrapper;
     @Autowired private TrendsScrapper trendsScrapper;
