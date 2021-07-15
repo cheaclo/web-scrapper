@@ -28,7 +28,7 @@ public abstract class Scrapper {
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();
 
-        String allHMSalesURL = url + HM_URL_PARAMS + SCRAP_LIMIT; //temporary
+        String allHMSalesURL = url + HM_URL_PARAMS + MAX_NUMBER_OF_PRODUCTS; //temporary
         driver.get(allHMSalesURL);
 
         List<WebElement> elements = driver.findElements(By.className(PRODUCT_CLASSNAME));
