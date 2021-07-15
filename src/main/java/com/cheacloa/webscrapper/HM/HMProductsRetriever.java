@@ -31,12 +31,13 @@ public class HMProductsRetriever {
         WebDriver driver = customWebDriver.getDriver();
         List<Product> products = new LinkedList<>();
 
-//        List<Product> women = ladiesProductsRetriever.run(driver);
+        List<Product> women = ladiesProductsRetriever.run(driver);
         List<Product> unisex = unisexProductsRetriever.run(driver);
 
-//        products.addAll(women);
+        products.addAll(women);
         products.addAll(unisex);
 
+        System.out.println("HM products number: " + products.size());
         driver.close();
         System.out.println("[INFO] Hm scrapping finished"); //LOG
         return products;
