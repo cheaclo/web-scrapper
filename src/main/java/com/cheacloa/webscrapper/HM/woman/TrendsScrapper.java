@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class TrendsScrapper extends Scrapper {
     public TrendsScrapper() {
         url = "https://www2.hm.com/en_gb/sale/ladies/trend.html";
+        shop = Product.Shop.HM;
         type = Product.Type.WOMAN;
         categories = Arrays.asList(Product.Category.TRENDS);
     }

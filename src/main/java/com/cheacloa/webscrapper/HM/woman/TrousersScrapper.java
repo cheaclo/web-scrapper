@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class TrousersScrapper extends Scrapper {
     public TrousersScrapper() {
         url = "https://www2.hm.com/en_gb/sale/ladies/trousers.html";
+        shop = Product.Shop.HM;
         type = Product.Type.WOMAN;
         categories = Arrays.asList(Product.Category.TROUSERS_AND_LEGGINGS);
     }
