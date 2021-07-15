@@ -50,7 +50,14 @@ public class Product {
     }
     private Type type;
 
-    public Product(String title, double price, double regularPrice, String shopHref, String imageSrc, List<Category> categories, Type type) {
+    public enum Shop {
+        HM,
+        ZARA,
+        RESERVED
+    }
+    private Shop shop;
+
+    public Product(String title, double price, double regularPrice, String shopHref, String imageSrc, List<Category> categories, Type type, Shop shop) {
         this.title = title;
         this.price = price;
         this.regularPrice = regularPrice;
@@ -58,6 +65,7 @@ public class Product {
         this.imageSrc = imageSrc;
         this.categories = categories;
         this.type = type;
+        this.shop = shop;
     }
 
     @Override
@@ -70,6 +78,7 @@ public class Product {
                 ", imageSrc='" + imageSrc + '\'' +
                 ", categories=" + categories +
                 ", type=" + type +
+                ", shop=" + shop +
                 '}';
     }
 }
