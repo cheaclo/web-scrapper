@@ -48,7 +48,7 @@ public abstract class HMScrapper {
                                     shop));
         }
 
-        System.out.println(products.size() + " " + products.get(0)); //LOG
+        System.out.println(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0))); //LOG
         return products;
     }
 

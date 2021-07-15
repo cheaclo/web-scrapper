@@ -17,6 +17,9 @@ public class HMProductsRetriever {
     @Autowired
     private HMUnisexProductsRetriever unisexProductsRetriever;
     @Autowired
+    private HMMenProductsRetriever menProductsRetriever;
+
+    @Autowired
     private CustomWebDriver customWebDriver;
 
     /* temporary solution */
@@ -33,12 +36,15 @@ public class HMProductsRetriever {
 
         List<Product> women = ladiesProductsRetriever.run(driver);
         List<Product> unisex = unisexProductsRetriever.run(driver);
+        List<Product> men = menProductsRetriever.run(driver);
 
         products.addAll(women);
         products.addAll(unisex);
+        products.addAll(men);
+
+        driver.close();
 
         System.out.println("HM products number: " + products.size());
-        driver.close();
         System.out.println("[INFO] Hm scrapping finished"); //LOG
         return products;
     }
