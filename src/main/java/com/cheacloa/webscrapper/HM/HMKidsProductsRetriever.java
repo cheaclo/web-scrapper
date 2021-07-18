@@ -26,7 +26,7 @@ public class HMKidsProductsRetriever implements Retriever {
     @Autowired HMGirlsSwimwearScrapper hmGirlsSwimwearScrapper;
     @Autowired HMGirlsTopsAndTShirtsScrapper hmGirlsTopsAndTShirtsScrapper;
     @Autowired HMGirlsTrousersAndJeansScrapper hmGirlsTrousersAndJeansScrapper;
-    
+
     @Autowired HMBoysAccessoriesScrapper hmBoysAccessoriesScrapper;
     @Autowired HMBoysBlazersSuitsScrapper hmBoysBlazersSuitsScrapper;
     @Autowired HMBoysJumpersAndSweatshirtsScrapper hmBoysJumpersAndSweatshirtsScrapper;
@@ -39,6 +39,8 @@ public class HMKidsProductsRetriever implements Retriever {
     @Autowired HMBoysTrousersAndJeansScrapper hmBoysTrousersAndJeansScrapper;
     @Autowired HMBoysTShirtsAndShirtsScrapper hmBoysTShirtsAndShirtsScrapper;
     @Autowired HMBoysUnderwearScrapper hmBoysUnderwearScrapper;
+
+    @Autowired HMBabiesScrapper hmBabiesScrapper;
 
     @Override
     public List<Product> run(WebDriver driver) {
@@ -72,6 +74,8 @@ public class HMKidsProductsRetriever implements Retriever {
         products.addAll(hmBoysTrousersAndJeansScrapper.run(driver));
         products.addAll(hmBoysTShirtsAndShirtsScrapper.run(driver));
         products.addAll(hmBoysUnderwearScrapper.run(driver));
+
+        products.addAll(hmBabiesScrapper.run(driver));
 
         return products;
     }
