@@ -14,6 +14,8 @@ import java.util.List;
 public class ReservedProductsRetriever {
     @Autowired
     ReservedWomenProductsRetriever reservedWomenProductsRetriever;
+    @Autowired
+    ReservedMenProductsRetriever reservedMenProductsRetriever;
 
     @Autowired
     private CustomWebDriver customWebDriver;
@@ -31,6 +33,7 @@ public class ReservedProductsRetriever {
         List<Product> products = new LinkedList<>();
 
         products.addAll(reservedWomenProductsRetriever.run(driver));
+        products.addAll(reservedMenProductsRetriever.run(driver));
 
         driver.close();
 
