@@ -42,8 +42,6 @@ public abstract class ReservedScrapper {
                     categories,
                     type,
                     shop));
-
-            System.out.println(products.get(products.size() - 1));
         }
 
         System.out.println(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0))); //LOG
