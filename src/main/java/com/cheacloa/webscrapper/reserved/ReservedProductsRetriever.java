@@ -16,6 +16,10 @@ public class ReservedProductsRetriever {
     ReservedWomenProductsRetriever reservedWomenProductsRetriever;
     @Autowired
     ReservedMenProductsRetriever reservedMenProductsRetriever;
+    @Autowired
+    ReservedGrilsProductsRetriever reservedGrilsProductsRetriever;
+    @Autowired
+    ReservedBoysProductsRetriever reservedBoysProductsRetriever;
 
     @Autowired
     private CustomWebDriver customWebDriver;
@@ -34,6 +38,8 @@ public class ReservedProductsRetriever {
 
         products.addAll(reservedWomenProductsRetriever.run(driver));
         products.addAll(reservedMenProductsRetriever.run(driver));
+        products.addAll(reservedGrilsProductsRetriever.run(driver));
+        products.addAll(reservedBoysProductsRetriever.run(driver));
 
         driver.close();
 
