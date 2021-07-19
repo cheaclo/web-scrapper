@@ -1,8 +1,7 @@
 package com.cheacloa.webscrapper.reserved;
 
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.hm.Retriever;
-import com.cheacloa.webscrapper.hm.woman.*;
+import com.cheacloa.webscrapper.Retriever;
 import com.cheacloa.webscrapper.reserved.woman.ReservedWomanBestsellersScrapper;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,5 +1,6 @@
 package com.cheacloa.webscrapper.hm;
 
+import com.cheacloa.webscrapper.Retriever;
 import com.cheacloa.webscrapper.hm.man.*;
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class HMMenProductsRetriever implements Retriever{
+public class HMMenProductsRetriever implements Retriever {
     @Autowired HMManHoodiesAndSweatshirtsScrapper hmManHoodiesAndSweatshirtsScrapper;
     @Autowired HMManTShirtsAndTanksScrapper hmManTShirtsAndTanksScrapper;
     @Autowired HMManShirtsScrapper hmManShirtsScrapper;

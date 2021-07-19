@@ -1,6 +1,5 @@
-package com.cheacloa.webscrapper.hm;
+package com.cheacloa.webscrapper;
 
-import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
