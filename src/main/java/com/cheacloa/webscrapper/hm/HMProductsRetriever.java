@@ -35,15 +35,10 @@ public class HMProductsRetriever {
         WebDriver driver = customWebDriver.getDriver();
         List<Product> products = new LinkedList<>();
 
-        List<Product> women = ladiesProductsRetriever.run(driver);
-        List<Product> unisex = unisexProductsRetriever.run(driver);
-        List<Product> men = menProductsRetriever.run(driver);
-        List<Product> kids = kidsProductsRetriever.run(driver);
-
-        products.addAll(women);
-        products.addAll(unisex);
-        products.addAll(men);
-        products.addAll(kids);
+        products.addAll(ladiesProductsRetriever.run(driver));
+        products.addAll(unisexProductsRetriever.run(driver));
+        products.addAll(menProductsRetriever.run(driver));
+        products.addAll(kidsProductsRetriever.run(driver));
 
         driver.close();
 
