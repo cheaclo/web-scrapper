@@ -18,6 +18,9 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class CAProductsRetriever {
     @Autowired
+    private CAWomenProductsRetriever caWomenProductsRetriever;
+
+    @Autowired
     private CustomWebDriver customWebDriver;
 
     /* temporary solution */
@@ -32,6 +35,8 @@ public class CAProductsRetriever {
         WebDriver driver = customWebDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         List<Product> products = new LinkedList<>();
+
+        products.addAll(caWomenProductsRetriever.run(driver));
 
         driver.close();
 
