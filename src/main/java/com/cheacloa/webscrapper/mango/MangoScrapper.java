@@ -1,10 +1,7 @@
 package com.cheacloa.webscrapper.mango;
 
 import com.cheacloa.webscrapper.Product;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,6 +13,8 @@ public abstract class MangoScrapper {
     private final String PRICE_SELECTOR = "div > div.prices-container._3n3P8 > span.price-sale.sg-body-small._2P5os";
     private final String REGULAR_PRICE_SELECTOR = "div > div.prices-container._3n3P8 > span.price-crossed-1.sg-body-small._3ILTC";
     private final String IMAGE_SRC_SELECTOR = "a._6vE5I > div._7MxGJ > img";
+    private final String ACCEPT_COOKIES_SELECTOR = "#onetrust-accept-btn-handler";
+    private final String CLOSE_POPUP_SELECTOR = "#FormSeleccionPaisIP > div > div > div > div > div > div.icon.closeModal.icon__close.desktop.confirmacionPais";
 
     protected String url;
 
@@ -32,6 +31,8 @@ public abstract class MangoScrapper {
         List<WebElement> elements = driver.findElements(By.cssSelector(PRODUCT_CLASSNAME));
 
         for (WebElement element : elements) {
+            System.out.println(element.getAttribute("innerHTML"));
+
             String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("innerHTML");
             String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getAttribute("innerHTML"   );
             String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getAttribute("innerHTML");
@@ -56,10 +57,15 @@ public abstract class MangoScrapper {
         return Double.parseDouble(arg.replaceAll("[^0-9.]+", " ").trim());
     }
 
+    private void acceptCookies(WebDriver driver) {
+        try {
+            driver.findElement(By.cssSelector(ACCEPT_COOKIES_SELECTOR)).click();
+            driver.findElement(By.cssSelector(CLOSE_POPUP_SELECTOR)).click();
+        } catch(NoSuchElementException ignored) {}
+    }
     private void scrollPageDown(WebDriver driver, int yShift) {
-        driver.findElement(By.cssSelector("#onetrust-accept-btn-handler")).click();
-        driver.findElement(By.cssSelector("#FormSeleccionPaisIP > div > div > div > div > div > div.icon.closeModal.icon__close.desktop.confirmacionPais")).click();
         JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
+        acceptCookies(driver);
 
         long previousYOffset;
         long currentYOffset = (Long)jsExecutor.executeScript("return window.pageYOffset;");
