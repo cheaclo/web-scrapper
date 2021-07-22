@@ -52,7 +52,7 @@ public class Product {
 
     public enum Shop {
         HM,
-        ZARA,
+        MANGO,
         RESERVED
     }
     private Shop shop;
