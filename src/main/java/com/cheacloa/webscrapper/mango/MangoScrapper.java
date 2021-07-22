@@ -5,9 +5,10 @@ import org.openqa.selenium.*;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public abstract class MangoScrapper {
-    private final int SCROLL_Y_SHIFT = 1000;
+    private final int SCROLL_Y_SHIFT = 100;
     private final String PRODUCT_CLASSNAME= "#page1 > div > ul > li";
     private final String TITLE_SELECTOR = "div > div._2y5JN > span";
     private final String PRICE_SELECTOR = "div > div.prices-container._3n3P8 > span.price-sale.sg-body-small._2P5os";
@@ -25,27 +26,32 @@ public abstract class MangoScrapper {
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();
 
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         driver.get(url);
         scrollPageDown(driver, SCROLL_Y_SHIFT);
 
         List<WebElement> elements = driver.findElements(By.cssSelector(PRODUCT_CLASSNAME));
 
-        for (WebElement element : elements) {
-            System.out.println(element.getAttribute("innerHTML"));
-
-            String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("innerHTML");
-            String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getAttribute("innerHTML"   );
-            String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getAttribute("innerHTML");
-            String shopHref = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("href");
-            String imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("src");
-            products.add(new Product(title,
-                                    extractDouble(price),
-                                    extractDouble(regularPrice),
-                                    shopHref,
-                                    imageSrc,
-                                    categories,
-                                    type,
-                                    shop));
+        try {
+            for (WebElement element : elements) {
+                System.out.println(element.getAttribute("innerHTML"));
+                String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("innerHTML");
+                String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getAttribute("innerHTML");
+                String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getAttribute("innerHTML");
+                String shopHref = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("href");
+                String imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("src");
+                products.add(new Product(title,
+                        extractDouble(price),
+                        extractDouble(regularPrice),
+                        shopHref,
+                        imageSrc,
+                        categories,
+                        type,
+                        shop));
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("[WARN] Repeat scrapping"); //LOG
+            return run(driver);
         }
 
 
@@ -67,14 +73,9 @@ public abstract class MangoScrapper {
         JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
         acceptCookies(driver);
 
-        long previousYOffset;
-        long currentYOffset = (Long)jsExecutor.executeScript("return window.pageYOffset;");
-        try {
-            do {
-                previousYOffset = currentYOffset;
-                jsExecutor.executeScript("window.scrollTo(0, " + (currentYOffset + yShift) + ")");
-                currentYOffset = (Long) jsExecutor.executeScript("return window.pageYOffset;");
-            } while (currentYOffset > previousYOffset);
-        } catch (Exception ignored) {}
+        long scrollHeight = (Long) jsExecutor.executeScript("return document.body.scrollHeight;");
+        for (long yOffset = yShift; yOffset < scrollHeight; yOffset += yShift) {
+            jsExecutor.executeScript("window.scrollTo(0, " + yOffset + ")");
+        }
     }
 }

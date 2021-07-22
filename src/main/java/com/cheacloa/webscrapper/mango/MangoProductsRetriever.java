@@ -14,6 +14,9 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class MangoProductsRetriever {
     @Autowired
+    private MangoWomenProductsRetriever mangoWomenProductsRetriever;
+
+    @Autowired
     private CustomWebDriver customWebDriver;
 
     /* temporary solution */
@@ -28,6 +31,8 @@ public class MangoProductsRetriever {
         WebDriver driver = customWebDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
         List<Product> products = new LinkedList<>();
+
+        products.addAll(mangoWomenProductsRetriever.run(driver));
 
         driver.close();
 
