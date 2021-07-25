@@ -24,11 +24,11 @@ public class HMProductsRetriever {
     @Autowired
     private CustomWebDriver customWebDriver;
 
-    /* temporary solution
+    /* temporary solution */
     @PostConstruct
     public void postConstruct() {
         run();
-    } */
+    }
 
     public List<Product> run() {
         System.out.println("[INFO] Hm scrapping started"); //LOG

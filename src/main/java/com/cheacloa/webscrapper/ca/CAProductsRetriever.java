@@ -21,6 +21,8 @@ public class CAProductsRetriever {
     private CAWomenProductsRetriever caWomenProductsRetriever;
     @Autowired
     private CAMenProductsRetriever caMenProductsRetriever;
+    @Autowired
+    private CAKidsProductsRetriever caKidsProductsRetriever;
 
     @Autowired
     private CustomWebDriver customWebDriver;
@@ -38,8 +40,9 @@ public class CAProductsRetriever {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         List<Product> products = new LinkedList<>();
 
-        //products.addAll(caWomenProductsRetriever.run(driver));
+        products.addAll(caWomenProductsRetriever.run(driver));
         products.addAll(caMenProductsRetriever.run(driver));
+        products.addAll(caKidsProductsRetriever.run(driver));
 
         driver.close();
 

@@ -24,11 +24,11 @@ public class ReservedProductsRetriever {
     @Autowired
     private CustomWebDriver customWebDriver;
 
-    /* temporary solution
+    /* temporary solution */
     @PostConstruct
     public void postConstruct() {
         run();
-    } */
+    }
 
     public List<Product> run() {
         System.out.println("[INFO] Reserved scrapping started"); //LOG
