@@ -8,11 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class WebScrapperApplication {
-	@Autowired
-	private HMProductsRetriever hmProductsRetriever;
-	@Autowired
-	private ReservedProductsRetriever reservedProductsRetriever;
-
 	public static void main(String[] args) {
 		SpringApplication.run(WebScrapperApplication.class, args);
 	}

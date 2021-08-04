@@ -17,7 +17,7 @@ public class CustomWebDriver {
     private String chromeDriverPath;
     private String herokuOptionsPath;
 
-    public CustomWebDriver(@Value("${local.run}") boolean localRun,
+    public CustomWebDriver(@Value("${run.local}") boolean localRun,
                            @Value("${local.driver.path}") String driverPath,
                            @Value("${user.agent}") String userAgent,
                            @Value("${google.chrome.bin}") String googleChromeBin,

@@ -8,6 +8,7 @@ import com.cheacloa.webscrapper.hm.HMUnisexProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMWomenProductsRetriever;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -26,11 +27,14 @@ public class CAProductsRetriever {
 
     @Autowired
     private CustomWebDriver customWebDriver;
+    @Value("${run.ca}")
+    private boolean runRetriever;
 
     /* temporary solution */
     @PostConstruct
     public void postConstruct() {
-        run();
+        if (runRetriever)
+            run();
     }
 
     public List<Product> run() {

@@ -4,6 +4,7 @@ import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -23,11 +24,14 @@ public class HMProductsRetriever {
 
     @Autowired
     private CustomWebDriver customWebDriver;
+    @Value("${run.hm}")
+    private boolean runRetriever;
 
     /* temporary solution */
     @PostConstruct
     public void postConstruct() {
-        run();
+        if (runRetriever)
+            run();
     }
 
     public List<Product> run() {
