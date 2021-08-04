@@ -27,17 +27,8 @@ public class CAProductsRetriever {
 
     @Autowired
     private CustomWebDriver customWebDriver;
-    @Value("${run.ca}")
-    private boolean runRetriever;
 
-    /* temporary solution */
-    @PostConstruct
-    public void postConstruct() {
-        if (runRetriever)
-            run();
-    }
-
-    public List<Product> run() {
+    public void retrieve() {
         System.out.println("[INFO] CA scrapping started"); //LOG
 
         WebDriver driver = customWebDriver.getDriver();
@@ -52,6 +43,6 @@ public class CAProductsRetriever {
 
         System.out.println("CA products number: " + products.size()); //LOG
         System.out.println("[INFO] CA scrapping finished"); //LOG
-        return products;
+        /* TODO: send products to database */
     }
 }

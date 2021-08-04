@@ -24,17 +24,8 @@ public class ReservedProductsRetriever {
 
     @Autowired
     private CustomWebDriver customWebDriver;
-    @Value("${run.reserved}")
-    private boolean runRetriever;
 
-    /* temporary solution */
-    @PostConstruct
-    public void postConstruct() {
-        if (runRetriever)
-            run();
-    }
-
-    public List<Product> run() {
+    public void retrieve() {
         System.out.println("[INFO] Reserved scrapping started"); //LOG
 
         WebDriver driver = customWebDriver.getDriver();
@@ -49,6 +40,6 @@ public class ReservedProductsRetriever {
 
         System.out.println("Reserved products number: " + products.size()); //LOG
         System.out.println("[INFO] Reserved scrapping finished"); //LOG
-        return products;
+        /* TODO: send products to database */
     }
 }

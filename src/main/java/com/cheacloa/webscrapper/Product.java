@@ -71,14 +71,14 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "title='" + title + '\'' +
+                "shop=" + shop +
+                ", title='" + title + '\'' +
                 ", price=" + price +
                 ", regularPrice=" + regularPrice +
                 ", shopHref='" + shopHref + '\'' +
                 ", imageSrc='" + imageSrc + '\'' +
                 ", categories=" + categories +
                 ", type=" + type +
-                ", shop=" + shop +
                 '}';
     }
 }

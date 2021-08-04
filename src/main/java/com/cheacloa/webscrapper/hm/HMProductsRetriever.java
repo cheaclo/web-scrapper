@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -24,17 +26,8 @@ public class HMProductsRetriever {
 
     @Autowired
     private CustomWebDriver customWebDriver;
-    @Value("${run.hm}")
-    private boolean runRetriever;
 
-    /* temporary solution */
-    @PostConstruct
-    public void postConstruct() {
-        if (runRetriever)
-            run();
-    }
-
-    public List<Product> run() {
+    public void retrieve() {
         System.out.println("[INFO] Hm scrapping started"); //LOG
 
         WebDriver driver = customWebDriver.getDriver();
@@ -49,6 +42,7 @@ public class HMProductsRetriever {
 
         System.out.println("HM products number: " + products.size()); //LOG
         System.out.println("[INFO] Hm scrapping finished"); //LOG
-        return products;
+        System.out.println(LocalDateTime.now()); //12:11:35
+        /* TODO: send products to database */
     }
 }
