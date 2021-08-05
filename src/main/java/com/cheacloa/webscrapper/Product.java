@@ -40,6 +40,7 @@ public class Product {
         TROUSERS_AND_LEGGINGS,
         UNDERWEAR_AND_NIGHTWEAR
     }
+
     private List<Category> categories;
 
     public enum Type {
@@ -48,6 +49,7 @@ public class Product {
         WOMAN,
         UNISEX
     }
+
     private Type type;
 
     public enum Shop {
@@ -55,6 +57,7 @@ public class Product {
         CA,
         RESERVED
     }
+
     private Shop shop;
 
     public Product(String title, double price, double regularPrice, String shopHref, String imageSrc, List<Category> categories, Type type, Shop shop) {
