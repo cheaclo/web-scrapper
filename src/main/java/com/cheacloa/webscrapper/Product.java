@@ -1,12 +1,12 @@
 package com.cheacloa.webscrapper;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
 public class Product {
     private String title;
     private double price;
@@ -59,29 +59,4 @@ public class Product {
     }
 
     private Shop shop;
-
-    public Product(String title, double price, double regularPrice, String shopHref, String imageSrc, List<Category> categories, Type type, Shop shop) {
-        this.title = title;
-        this.price = price;
-        this.regularPrice = regularPrice;
-        this.shopHref = shopHref;
-        this.imageSrc = imageSrc;
-        this.categories = categories;
-        this.type = type;
-        this.shop = shop;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "shop=" + shop +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                ", regularPrice=" + regularPrice +
-                ", shopHref='" + shopHref + '\'' +
-                ", imageSrc='" + imageSrc + '\'' +
-                ", categories=" + categories +
-                ", type=" + type +
-                '}';
-    }
 }
