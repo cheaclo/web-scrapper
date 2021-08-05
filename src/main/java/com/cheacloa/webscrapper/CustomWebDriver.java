@@ -10,12 +10,12 @@ import java.util.HashMap;
 
 @Component
 public class CustomWebDriver {
-    private boolean localRun;
-    private String driverPath;
-    private String userAgent;
-    private String googleChromeBin;
-    private String chromeDriverPath;
-    private String herokuOptionsPath;
+    private final boolean localRun;
+    private final String driverPath;
+    private final String userAgent;
+    private final String googleChromeBin;
+    private final String chromeDriverPath;
+    private final String herokuOptionsPath;
 
     public CustomWebDriver(@Value("${run.local}") boolean localRun,
                            @Value("${local.driver.path}") String driverPath,
@@ -31,7 +31,7 @@ public class CustomWebDriver {
         this.herokuOptionsPath = herokuOptionsPath;
     }
 
-    private HashMap<String, Object> preferencesInit() {
+    private static HashMap<String, Object> preferencesInit() {
         HashMap<String, Object> prefs = new HashMap<>();
         // Prevent driver from loading the images - time saving
         prefs.put("profile.managed_default_content_settings.images", 2);
