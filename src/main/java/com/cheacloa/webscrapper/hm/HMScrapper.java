@@ -57,7 +57,7 @@ public abstract class HMScrapper {
             }
         }
 
-        log.info(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
+        log.debug(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
         return products;
     }
 
