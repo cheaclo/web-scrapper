@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 
 @Component
 public class ProductsRetriever {
@@ -32,6 +33,7 @@ public class ProductsRetriever {
     @PostConstruct
     public void postConstruct() {
         log.info("Scrapping started");
+        log.info("Started at " + LocalDateTime.now());
 
         if (runCA)
             new Thread(() -> caProductsRetriever.retrieve()).start();
