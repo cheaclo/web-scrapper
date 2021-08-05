@@ -1,15 +1,20 @@
 package com.cheacloa.webscrapper.hm;
 
 import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.ca.CAProductsRetriever;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public abstract class HMScrapper {
+    private Logger log = LoggerFactory.getLogger(HMScrapper.class);
+
     private final int MAX_NUMBER_OF_PRODUCTS = 10000;
     private final String HM_URL_PARAMS = "?sort=stock&image-size=small&image=stillLife&offset=0&page-size=";
     private final String PRODUCT_CLASSNAME= "hm-product-item";
@@ -48,12 +53,11 @@ public abstract class HMScrapper {
                                         type,
                                         shop));
             } catch (NoSuchElementException e) {
-                System.out.println("[WARN][HM] element not found");
+                log.warn("HM element not found");
             }
         }
 
-
-        System.out.println(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0))); //LOG
+        log.info(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
         return products;
     }
 

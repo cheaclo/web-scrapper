@@ -5,11 +5,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public abstract class CAScrapper {
+    private Logger log = LoggerFactory.getLogger(CAScrapper.class);
+
     private final String CA_PAGE_NUMBER_PARAM = "?pagenumber=";
     private final String PAGE_NAVIGATORS_SELECTOR = "ul.pagination > li";
     private final String PRODUCT_SELECTOR = "div.product-tile.product-tile--quickwish";
@@ -41,7 +45,7 @@ public abstract class CAScrapper {
                 break;
         }
 
-        System.out.println(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0))); //LOG
+        log.info(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
         return products;
     }
 
@@ -71,7 +75,7 @@ public abstract class CAScrapper {
                         shop));
             }
             catch (NoSuchElementException e) {
-                System.out.println("[WARN][CA] element not found");
+                log.warn("CA element not found");
             }
         }
 

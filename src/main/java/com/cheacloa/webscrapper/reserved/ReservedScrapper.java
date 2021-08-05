@@ -5,11 +5,15 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.List;
 
 public abstract class ReservedScrapper {
+    private Logger log = LoggerFactory.getLogger(ReservedScrapper.class);
+
     private final String PRODUCT_SELECTOR = "#categoryProducts > article > figure";
     private final String TITLE_SELECTOR = "div > figcaption > a";
     private final String PRICE_SELECTOR = "div > section > p.es-discount-price > span";
@@ -45,12 +49,11 @@ public abstract class ReservedScrapper {
                         type,
                         shop));
             } catch (NoSuchElementException e) {
-                System.out.println("[WARN][Reserved] element not found");
+                log.warn("Reserved element not found");
             }
         }
 
-
-        System.out.println(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0))); //LOG
+        log.info(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
         return products;
     }
 

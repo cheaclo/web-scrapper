@@ -2,11 +2,14 @@ package com.cheacloa.webscrapper.ca;
 
 import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.ProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMKidsProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMMenProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMUnisexProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMWomenProductsRetriever;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -18,6 +21,8 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class CAProductsRetriever {
+    private Logger log = LoggerFactory.getLogger(CAProductsRetriever.class);
+
     @Autowired
     private CAWomenProductsRetriever caWomenProductsRetriever;
     @Autowired
@@ -29,7 +34,7 @@ public class CAProductsRetriever {
     private CustomWebDriver customWebDriver;
 
     public void retrieve() {
-        System.out.println("[INFO] CA scrapping started"); //LOG
+        log.info("[INFO] CA scrapping started");
 
         WebDriver driver = customWebDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -41,8 +46,8 @@ public class CAProductsRetriever {
 
         driver.close();
 
-        System.out.println("CA products number: " + products.size()); //LOG
-        System.out.println("[INFO] CA scrapping finished"); //LOG
+        log.info("CA products number: " + products.size());
+        log.info("CA scrapping finished");
         /* TODO: send products to database */
     }
 }

@@ -2,7 +2,10 @@ package com.cheacloa.webscrapper.reserved;
 
 import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.hm.HMScrapper;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -13,6 +16,8 @@ import java.util.List;
 
 @Component
 public class ReservedProductsRetriever {
+    private Logger log = LoggerFactory.getLogger(ReservedProductsRetriever.class);
+
     @Autowired
     ReservedWomenProductsRetriever reservedWomenProductsRetriever;
     @Autowired
@@ -26,7 +31,7 @@ public class ReservedProductsRetriever {
     private CustomWebDriver customWebDriver;
 
     public void retrieve() {
-        System.out.println("[INFO] Reserved scrapping started"); //LOG
+        log.info("[INFO] Reserved scrapping started");
 
         WebDriver driver = customWebDriver.getDriver();
         List<Product> products = new LinkedList<>();
@@ -38,8 +43,8 @@ public class ReservedProductsRetriever {
 
         driver.close();
 
-        System.out.println("Reserved products number: " + products.size()); //LOG
-        System.out.println("[INFO] Reserved scrapping finished"); //LOG
+        log.info("Reserved products number: " + products.size());
+        log.info("Reserved scrapping finished");
         /* TODO: send products to database */
     }
 }
