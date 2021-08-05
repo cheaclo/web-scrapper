@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 @Component
 public class ProductsRetriever {
-    private Logger log = LoggerFactory.getLogger(ProductsRetriever.class);
+    private final Logger log = LoggerFactory.getLogger(ProductsRetriever.class);
 
     @Autowired
     CAProductsRetriever caProductsRetriever;
