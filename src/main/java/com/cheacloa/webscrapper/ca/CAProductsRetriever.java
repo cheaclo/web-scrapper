@@ -34,7 +34,7 @@ public class CAProductsRetriever {
     private CustomWebDriver customWebDriver;
 
     public void retrieve() {
-        log.info("[INFO] CA scrapping started");
+        log.info("CA scrapping started");
 
         WebDriver driver = customWebDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

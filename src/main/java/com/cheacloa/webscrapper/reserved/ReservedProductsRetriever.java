@@ -31,7 +31,7 @@ public class ReservedProductsRetriever {
     private CustomWebDriver customWebDriver;
 
     public void retrieve() {
-        log.info("[INFO] Reserved scrapping started");
+        log.info("Reserved scrapping started");
 
         WebDriver driver = customWebDriver.getDriver();
         List<Product> products = new LinkedList<>();
