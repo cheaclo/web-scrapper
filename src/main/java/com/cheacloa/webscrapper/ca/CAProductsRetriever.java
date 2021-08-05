@@ -2,26 +2,19 @@ package com.cheacloa.webscrapper.ca;
 
 import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.ProductsRetriever;
-import com.cheacloa.webscrapper.hm.HMKidsProductsRetriever;
-import com.cheacloa.webscrapper.hm.HMMenProductsRetriever;
-import com.cheacloa.webscrapper.hm.HMUnisexProductsRetriever;
-import com.cheacloa.webscrapper.hm.HMWomenProductsRetriever;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Component
 public class CAProductsRetriever {
-    private Logger log = LoggerFactory.getLogger(CAProductsRetriever.class);
+    private final Logger log = LoggerFactory.getLogger(CAProductsRetriever.class);
 
     @Autowired
     private CAWomenProductsRetriever caWomenProductsRetriever;
