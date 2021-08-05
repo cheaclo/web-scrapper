@@ -2,23 +2,19 @@ package com.cheacloa.webscrapper.hm;
 
 import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.ca.CAProductsRetriever;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
 public class HMProductsRetriever {
-    private Logger log = LoggerFactory.getLogger(HMProductsRetriever.class);
+    private final Logger log = LoggerFactory.getLogger(HMProductsRetriever.class);
 
     @Autowired
     private HMWomenProductsRetriever ladiesProductsRetriever;
