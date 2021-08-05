@@ -1,8 +1,8 @@
 package com.cheacloa.webscrapper.hm;
 
-import com.cheacloa.webscrapper.Retriever;
-import com.cheacloa.webscrapper.hm.kid.*;
 import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.SubRetriever;
+import com.cheacloa.webscrapper.hm.kid.*;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,37 +11,65 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class HMKidsProductsRetriever implements Retriever {
-    @Autowired HMGirlsAccessoriesScrapper hmGirlsAccessoriesScrapper;
-    @Autowired HMGirlsDressesScrapper hmGirlsDressesScrapper;
-    @Autowired HMGirlsFancyScrapper hmGirlsFancyScrapper;
-    @Autowired HMGirlsJumpersAndSweatshirtsScrapper hmGirlsJumpersAndSweatshirtsScrapper;
-    @Autowired HMGirlsJumpsuitsAndPlaysuitsScrapper hmGirlsJumpsuitsAndPlaysuitsScrapper;
-    @Autowired HMGirlsNightwearScrapper hmGirlsNightwearScrapper;
-    @Autowired HMGirlsOutwearScrapper hmGirlsOutwearScrapper;
-    @Autowired HMGirlsSetsAndOutfitsScrapper hmGirlsSetsAndOutfitsScrapper;
-    @Autowired HMGirlsShoesScrapper hmGirlsShoesScrapper;
-    @Autowired HMGirlsSkirtsScrapper hmGirlsSkirtsScrapper;
-    @Autowired HMGirlsSocksScrapper hmGirlsSocksScrapper;
-    @Autowired HMGirlsSportwearScrapper hmGirlsSportwearScrapper;
-    @Autowired HMGirlsSwimwearScrapper hmGirlsSwimwearScrapper;
-    @Autowired HMGirlsTopsAndTShirtsScrapper hmGirlsTopsAndTShirtsScrapper;
-    @Autowired HMGirlsTrousersAndJeansScrapper hmGirlsTrousersAndJeansScrapper;
+public class HMKidsProductsSubRetriever implements SubRetriever {
+    @Autowired
+    HMGirlsAccessoriesScrapper hmGirlsAccessoriesScrapper;
+    @Autowired
+    HMGirlsDressesScrapper hmGirlsDressesScrapper;
+    @Autowired
+    HMGirlsFancyScrapper hmGirlsFancyScrapper;
+    @Autowired
+    HMGirlsJumpersAndSweatshirtsScrapper hmGirlsJumpersAndSweatshirtsScrapper;
+    @Autowired
+    HMGirlsJumpsuitsAndPlaysuitsScrapper hmGirlsJumpsuitsAndPlaysuitsScrapper;
+    @Autowired
+    HMGirlsNightwearScrapper hmGirlsNightwearScrapper;
+    @Autowired
+    HMGirlsOutwearScrapper hmGirlsOutwearScrapper;
+    @Autowired
+    HMGirlsSetsAndOutfitsScrapper hmGirlsSetsAndOutfitsScrapper;
+    @Autowired
+    HMGirlsShoesScrapper hmGirlsShoesScrapper;
+    @Autowired
+    HMGirlsSkirtsScrapper hmGirlsSkirtsScrapper;
+    @Autowired
+    HMGirlsSocksScrapper hmGirlsSocksScrapper;
+    @Autowired
+    HMGirlsSportwearScrapper hmGirlsSportwearScrapper;
+    @Autowired
+    HMGirlsSwimwearScrapper hmGirlsSwimwearScrapper;
+    @Autowired
+    HMGirlsTopsAndTShirtsScrapper hmGirlsTopsAndTShirtsScrapper;
+    @Autowired
+    HMGirlsTrousersAndJeansScrapper hmGirlsTrousersAndJeansScrapper;
 
-    @Autowired HMBoysAccessoriesScrapper hmBoysAccessoriesScrapper;
-    @Autowired HMBoysBlazersSuitsScrapper hmBoysBlazersSuitsScrapper;
-    @Autowired HMBoysJumpersAndSweatshirtsScrapper hmBoysJumpersAndSweatshirtsScrapper;
-    @Autowired HMBoysNightwearScrapper hmBoysNightwearScrapper;
-    @Autowired HMBoysOutwearsScrapper hmBoysOutwearsScrapper;
-    @Autowired HMBoysSetsAndOutfitsScrapper hmBoysSetsAndOutfitsScrapper;
-    @Autowired HMBoysShoesScrapper hmBoysShoesScrapper;
-    @Autowired HMBoysShortsScrapper hmBoysShortsScrapper;
-    @Autowired HMBoysSwimwearScrapper hmBoysSwimwearScrapper;
-    @Autowired HMBoysTrousersAndJeansScrapper hmBoysTrousersAndJeansScrapper;
-    @Autowired HMBoysTShirtsAndShirtsScrapper hmBoysTShirtsAndShirtsScrapper;
-    @Autowired HMBoysUnderwearScrapper hmBoysUnderwearScrapper;
+    @Autowired
+    HMBoysAccessoriesScrapper hmBoysAccessoriesScrapper;
+    @Autowired
+    HMBoysBlazersSuitsScrapper hmBoysBlazersSuitsScrapper;
+    @Autowired
+    HMBoysJumpersAndSweatshirtsScrapper hmBoysJumpersAndSweatshirtsScrapper;
+    @Autowired
+    HMBoysNightwearScrapper hmBoysNightwearScrapper;
+    @Autowired
+    HMBoysOutwearsScrapper hmBoysOutwearsScrapper;
+    @Autowired
+    HMBoysSetsAndOutfitsScrapper hmBoysSetsAndOutfitsScrapper;
+    @Autowired
+    HMBoysShoesScrapper hmBoysShoesScrapper;
+    @Autowired
+    HMBoysShortsScrapper hmBoysShortsScrapper;
+    @Autowired
+    HMBoysSwimwearScrapper hmBoysSwimwearScrapper;
+    @Autowired
+    HMBoysTrousersAndJeansScrapper hmBoysTrousersAndJeansScrapper;
+    @Autowired
+    HMBoysTShirtsAndShirtsScrapper hmBoysTShirtsAndShirtsScrapper;
+    @Autowired
+    HMBoysUnderwearScrapper hmBoysUnderwearScrapper;
 
-    @Autowired HMBabiesScrapper hmBabiesScrapper;
+    @Autowired
+    HMBabiesScrapper hmBabiesScrapper;
 
     @Override
     public List<Product> run(WebDriver driver) {

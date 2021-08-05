@@ -17,13 +17,13 @@ public class HMProductsRetriever {
     private final Logger log = LoggerFactory.getLogger(HMProductsRetriever.class);
 
     @Autowired
-    private HMWomenProductsRetriever ladiesProductsRetriever;
+    private HMWomenProductsSubRetriever ladiesProductsRetriever;
     @Autowired
-    private HMUnisexProductsRetriever unisexProductsRetriever;
+    private HMUnisexProductsSubRetriever unisexProductsRetriever;
     @Autowired
-    private HMMenProductsRetriever menProductsRetriever;
+    private HMMenProductsSubRetriever menProductsRetriever;
     @Autowired
-    private HMKidsProductsRetriever kidsProductsRetriever;
+    private HMKidsProductsSubRetriever kidsProductsRetriever;
 
     @Autowired
     private CustomWebDriver customWebDriver;

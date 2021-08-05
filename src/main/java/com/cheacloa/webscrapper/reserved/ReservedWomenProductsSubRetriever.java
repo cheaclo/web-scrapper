@@ -1,7 +1,7 @@
 package com.cheacloa.webscrapper.reserved;
 
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.Retriever;
+import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.reserved.woman.*;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,23 +11,38 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class ReservedWomenProductsRetriever implements Retriever {
-    @Autowired ReservedWomanAccessoriesScrapper reservedWomanAccessoriesScrapper;
-    @Autowired ReservedWomanBestsellersScrapper reservedWomanBestsellersScrapper;
-    @Autowired ReservedWomanBlousesScrapper reservedWomanBlousesScrapper;
-    @Autowired ReservedWomanDressesAndJumpsuitsScrapper reservedWomanDressesAndJumpsuitsScrapper;
-    @Autowired ReservedWomanJacketsScrapper reservedWomanJacketsScrapper;
-    @Autowired ReservedWomanJeansScrapper reservedWomanJeansScrapper;
-    @Autowired ReservedWomanOutwearScrapper reservedWomanOutwearScrapper;
-    @Autowired ReservedWomanShirtsScrapper reservedWomanShirtsScrapper;
-    @Autowired ReservedWomanShortsScrapper reservedWomanShortsScrapper;
-    @Autowired ReservedWomanSkirtsScrapper reservedWomanSkirtsScrapper;
-    @Autowired ReservedWomanSweatersScrapper reservedWomanSweatersScrapper;
-    @Autowired ReservedWomanSweatshirtsScrapper reservedWomanSweatshirtsScrapper;
-    @Autowired ReservedWomanTrousersScrapper reservedWomanTrousersScrapper;
-    @Autowired ReservedWomanTShirtsScrapper reservedWomanTShirtsScrapper;
+public class ReservedWomenProductsSubRetriever implements SubRetriever {
+    @Autowired
+    ReservedWomanAccessoriesScrapper reservedWomanAccessoriesScrapper;
+    @Autowired
+    ReservedWomanBestsellersScrapper reservedWomanBestsellersScrapper;
+    @Autowired
+    ReservedWomanBlousesScrapper reservedWomanBlousesScrapper;
+    @Autowired
+    ReservedWomanDressesAndJumpsuitsScrapper reservedWomanDressesAndJumpsuitsScrapper;
+    @Autowired
+    ReservedWomanJacketsScrapper reservedWomanJacketsScrapper;
+    @Autowired
+    ReservedWomanJeansScrapper reservedWomanJeansScrapper;
+    @Autowired
+    ReservedWomanOutwearScrapper reservedWomanOutwearScrapper;
+    @Autowired
+    ReservedWomanShirtsScrapper reservedWomanShirtsScrapper;
+    @Autowired
+    ReservedWomanShortsScrapper reservedWomanShortsScrapper;
+    @Autowired
+    ReservedWomanSkirtsScrapper reservedWomanSkirtsScrapper;
+    @Autowired
+    ReservedWomanSweatersScrapper reservedWomanSweatersScrapper;
+    @Autowired
+    ReservedWomanSweatshirtsScrapper reservedWomanSweatshirtsScrapper;
+    @Autowired
+    ReservedWomanTrousersScrapper reservedWomanTrousersScrapper;
+    @Autowired
+    ReservedWomanTShirtsScrapper reservedWomanTShirtsScrapper;
 
 
+    @Override
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();
 

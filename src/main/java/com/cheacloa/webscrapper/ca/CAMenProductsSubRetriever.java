@@ -1,7 +1,7 @@
 package com.cheacloa.webscrapper.ca;
 
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.Retriever;
+import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.ca.man.*;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,30 +11,53 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class CAMenProductsRetriever implements Retriever {
-    @Autowired CAManBusinessWearScrapper caManBusinessWearScrapper;
-    @Autowired CAManCHAccessoriesScrapper caManCHAccessoriesScrapper;
-    @Autowired CAManCHJacketsAndCoatsScrapper caManCHJacketsAndCoatsScrapper;
-    @Autowired CAManCHJeansScrapper caManCHJeansScrapper;
-    @Autowired CAManCHShirtsScrapper caManCHShirtsScrapper;
-    @Autowired CAManCHShoesScrapper caManCHShoesScrapper;
-    @Autowired CAManCHShortsScrapper caManCHShortsScrapper;
-    @Autowired CAManCHSlippersScrapper caManCHSlippersScrapper;
-    @Autowired CAManCHSweatshirtsScrapper caManCHSweatshirtsScrapper;
-    @Autowired CAManCHTrousersScrapper caManCHTrousersScrapper;
-    @Autowired CAManCHTShirtsScrapper caManCHTShirtsScrapper;
-    @Autowired CAManJacketsAndCoatsScrapper caManJacketsAndCoatsScrapper;
-    @Autowired CAManJeansScrapper caManJeansScrapper;
-    @Autowired CAManJumpersAndCardigansScrapper caManJumpersAndCardigansScrapper;
-    @Autowired CAManLargeSizesScrapper caManLargeSizesScrapper;
-    @Autowired CAManShirtsScrapper caManShirtsScrapper;
-    @Autowired CAManShortsScrapper caManShortsScrapper;
-    @Autowired CAManSocksScrapper caManSocksScrapper;
-    @Autowired CAManSweatshirtsAndSweatJacketsScrapper caManSweatshirtsAndSweatJacketsScrapper;
-    @Autowired CAManTrousersScrapper caManTrousersScrapper;
-    @Autowired CAManTShirtsAndPoloScrapper caManTShirtsAndPoloScrapper;
-    @Autowired CAManUnderwearAndNightwearScrapper caManUnderwearAndNightwearScrapper;
+public class CAMenProductsSubRetriever implements SubRetriever {
+    @Autowired
+    CAManBusinessWearScrapper caManBusinessWearScrapper;
+    @Autowired
+    CAManCHAccessoriesScrapper caManCHAccessoriesScrapper;
+    @Autowired
+    CAManCHJacketsAndCoatsScrapper caManCHJacketsAndCoatsScrapper;
+    @Autowired
+    CAManCHJeansScrapper caManCHJeansScrapper;
+    @Autowired
+    CAManCHShirtsScrapper caManCHShirtsScrapper;
+    @Autowired
+    CAManCHShoesScrapper caManCHShoesScrapper;
+    @Autowired
+    CAManCHShortsScrapper caManCHShortsScrapper;
+    @Autowired
+    CAManCHSlippersScrapper caManCHSlippersScrapper;
+    @Autowired
+    CAManCHSweatshirtsScrapper caManCHSweatshirtsScrapper;
+    @Autowired
+    CAManCHTrousersScrapper caManCHTrousersScrapper;
+    @Autowired
+    CAManCHTShirtsScrapper caManCHTShirtsScrapper;
+    @Autowired
+    CAManJacketsAndCoatsScrapper caManJacketsAndCoatsScrapper;
+    @Autowired
+    CAManJeansScrapper caManJeansScrapper;
+    @Autowired
+    CAManJumpersAndCardigansScrapper caManJumpersAndCardigansScrapper;
+    @Autowired
+    CAManLargeSizesScrapper caManLargeSizesScrapper;
+    @Autowired
+    CAManShirtsScrapper caManShirtsScrapper;
+    @Autowired
+    CAManShortsScrapper caManShortsScrapper;
+    @Autowired
+    CAManSocksScrapper caManSocksScrapper;
+    @Autowired
+    CAManSweatshirtsAndSweatJacketsScrapper caManSweatshirtsAndSweatJacketsScrapper;
+    @Autowired
+    CAManTrousersScrapper caManTrousersScrapper;
+    @Autowired
+    CAManTShirtsAndPoloScrapper caManTShirtsAndPoloScrapper;
+    @Autowired
+    CAManUnderwearAndNightwearScrapper caManUnderwearAndNightwearScrapper;
 
+    @Override
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();
 

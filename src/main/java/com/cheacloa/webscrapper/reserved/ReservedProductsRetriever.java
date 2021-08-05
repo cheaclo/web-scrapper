@@ -16,13 +16,13 @@ public class ReservedProductsRetriever {
     private final Logger log = LoggerFactory.getLogger(ReservedProductsRetriever.class);
 
     @Autowired
-    ReservedWomenProductsRetriever reservedWomenProductsRetriever;
+    ReservedWomenProductsSubRetriever reservedWomenProductsRetriever;
     @Autowired
-    ReservedMenProductsRetriever reservedMenProductsRetriever;
+    ReservedMenProductsSubRetriever reservedMenProductsRetriever;
     @Autowired
-    ReservedGrilsProductsRetriever reservedGrilsProductsRetriever;
+    ReservedGrilsProductsSubRetriever reservedGrilsProductsRetriever;
     @Autowired
-    ReservedBoysProductsRetriever reservedBoysProductsRetriever;
+    ReservedBoysProductsSubRetriever reservedBoysProductsRetriever;
 
     @Autowired
     private CustomWebDriver customWebDriver;

@@ -1,8 +1,8 @@
 package com.cheacloa.webscrapper.hm;
 
-import com.cheacloa.webscrapper.Retriever;
-import com.cheacloa.webscrapper.hm.unisex.*;
 import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.SubRetriever;
+import com.cheacloa.webscrapper.hm.unisex.*;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -11,25 +11,43 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class HMUnisexProductsRetriever implements Retriever {
-    @Autowired HMUnisexLastChanceScrapper lastChanceScrapper;
-    @Autowired HMUnisexDressesScrapper dressesScrapper;
-    @Autowired HMUnisexShirtsAndBlouesesScrapper shirtsAndBlouesesScrapper;
-    @Autowired HMUnisexTopsScrapper hmUnisexTopsScrapper;
-    @Autowired HMUnisexCardagiansAndJumpersScrapper hmUnisexCardagiansAndJumpersScrapper;
-    @Autowired HMUnisexHoodiesAndSweatshirtsScrapper hmUnisexHoodiesAndSweatshirtsScrapper;
-    @Autowired HMUnisexJacketsAndCoatsScrapper hmUnisexJacketsAndCoatsScrapper;
-    @Autowired HMUnisexJeansScrapper hmUnisexJeansScrapper;
-    @Autowired HMUnisexTrousersAndLeggingsScrapper hmUnisexTrousersAndLeggingsScrapper;
-    @Autowired HMUnisexJumpsuitsAndRompersScrapper hmUnisexJumpsuitsAndRompersScrapper;
-    @Autowired HMUnisexSkirtsScrapper hmUnisexSkirtsScrapper;
-    @Autowired HMUnisexSwimwearScrapper hmUnisexSwimwearScrapper;
-    @Autowired HMUnisexShoesScrapper hmUnisexShoesScrapper;
-    @Autowired HMUnisexAccessoriesScrapper hmUnisexAccessoriesScrapper;
-    @Autowired HMUnisexBasicsScrapper hmUnisexBasicsScrapper;
-    @Autowired HMUnisexShortsScrapper hmUnisexShortsScrapper;
-    @Autowired HMUnisexUnderwearAndNightwearScrapper hmUnisexUnderwearAndNightwearScrapper;
+public class HMUnisexProductsSubRetriever implements SubRetriever {
+    @Autowired
+    HMUnisexLastChanceScrapper lastChanceScrapper;
+    @Autowired
+    HMUnisexDressesScrapper dressesScrapper;
+    @Autowired
+    HMUnisexShirtsAndBlouesesScrapper shirtsAndBlouesesScrapper;
+    @Autowired
+    HMUnisexTopsScrapper hmUnisexTopsScrapper;
+    @Autowired
+    HMUnisexCardagiansAndJumpersScrapper hmUnisexCardagiansAndJumpersScrapper;
+    @Autowired
+    HMUnisexHoodiesAndSweatshirtsScrapper hmUnisexHoodiesAndSweatshirtsScrapper;
+    @Autowired
+    HMUnisexJacketsAndCoatsScrapper hmUnisexJacketsAndCoatsScrapper;
+    @Autowired
+    HMUnisexJeansScrapper hmUnisexJeansScrapper;
+    @Autowired
+    HMUnisexTrousersAndLeggingsScrapper hmUnisexTrousersAndLeggingsScrapper;
+    @Autowired
+    HMUnisexJumpsuitsAndRompersScrapper hmUnisexJumpsuitsAndRompersScrapper;
+    @Autowired
+    HMUnisexSkirtsScrapper hmUnisexSkirtsScrapper;
+    @Autowired
+    HMUnisexSwimwearScrapper hmUnisexSwimwearScrapper;
+    @Autowired
+    HMUnisexShoesScrapper hmUnisexShoesScrapper;
+    @Autowired
+    HMUnisexAccessoriesScrapper hmUnisexAccessoriesScrapper;
+    @Autowired
+    HMUnisexBasicsScrapper hmUnisexBasicsScrapper;
+    @Autowired
+    HMUnisexShortsScrapper hmUnisexShortsScrapper;
+    @Autowired
+    HMUnisexUnderwearAndNightwearScrapper hmUnisexUnderwearAndNightwearScrapper;
 
+    @Override
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();
 

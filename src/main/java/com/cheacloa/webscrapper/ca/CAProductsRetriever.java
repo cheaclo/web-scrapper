@@ -17,11 +17,11 @@ public class CAProductsRetriever {
     private final Logger log = LoggerFactory.getLogger(CAProductsRetriever.class);
 
     @Autowired
-    private CAWomenProductsRetriever caWomenProductsRetriever;
+    private CAWomenProductsSubRetriever caWomenProductsRetriever;
     @Autowired
-    private CAMenProductsRetriever caMenProductsRetriever;
+    private CAMenProductsSubRetriever caMenProductsRetriever;
     @Autowired
-    private CAKidsProductsRetriever caKidsProductsRetriever;
+    private CAKidsProductsSubRetriever caKidsProductsRetriever;
 
     @Autowired
     private CustomWebDriver customWebDriver;

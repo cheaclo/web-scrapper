@@ -1,7 +1,7 @@
 package com.cheacloa.webscrapper.ca;
 
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.Retriever;
+import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.ca.woman.*;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,25 +11,42 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class CAWomenProductsRetriever implements Retriever {
-    @Autowired CAWomanBlousesScrapper caWomanBlousesScrapper;
-    @Autowired CAWomanBusinessWearScrapper caWomanBusinessWearScrapper;
-    @Autowired CAWomanDressesAndJumpsuitsScrapper caWomanDressesAndJumpsuitsScrapper;
-    @Autowired CAWomanEveningWearScrapper caWomanEveningWearScrapper;
-    @Autowired CAWomanJacketsAndCoatsScrapper caWomanJacketsAndCoatsScrapper;
-    @Autowired CAWomanJeansScrapper caWomanJeansScrapper;
-    @Autowired CAWomanJumpersAndCardigansScrapper caWomanJumpersAndCardigansScrapper;
-    @Autowired CAWomanNightwearScrapper caWomanNightwearScrapper;
-    @Autowired CAWomanShirtsAndTopsScrapper caWomanShirtsAndTopsScrapper;
-    @Autowired CAWomanSkirtsScrapper caWomanSkirtsScrapper;
-    @Autowired CAWomanSocksAndTightsScrapper caWomanSocksAndTightsScrapper;
-    @Autowired CAWomanSportswearScrapper caWomanSportswearScrapper;
-    @Autowired CAWomanSweatshirtsScrapper caWomanSweatshirtsScrapper;
-    @Autowired CAWomanSwimwearScrapper caWomanSwimwearScrapper;
-    @Autowired CAWomanTrousersScrapper caWomanTrousersScrapper;
-    @Autowired CAWomanUnderwearScrapper caWomanUnderwearScrapper;
+public class CAWomenProductsSubRetriever implements SubRetriever {
+    @Autowired
+    CAWomanBlousesScrapper caWomanBlousesScrapper;
+    @Autowired
+    CAWomanBusinessWearScrapper caWomanBusinessWearScrapper;
+    @Autowired
+    CAWomanDressesAndJumpsuitsScrapper caWomanDressesAndJumpsuitsScrapper;
+    @Autowired
+    CAWomanEveningWearScrapper caWomanEveningWearScrapper;
+    @Autowired
+    CAWomanJacketsAndCoatsScrapper caWomanJacketsAndCoatsScrapper;
+    @Autowired
+    CAWomanJeansScrapper caWomanJeansScrapper;
+    @Autowired
+    CAWomanJumpersAndCardigansScrapper caWomanJumpersAndCardigansScrapper;
+    @Autowired
+    CAWomanNightwearScrapper caWomanNightwearScrapper;
+    @Autowired
+    CAWomanShirtsAndTopsScrapper caWomanShirtsAndTopsScrapper;
+    @Autowired
+    CAWomanSkirtsScrapper caWomanSkirtsScrapper;
+    @Autowired
+    CAWomanSocksAndTightsScrapper caWomanSocksAndTightsScrapper;
+    @Autowired
+    CAWomanSportswearScrapper caWomanSportswearScrapper;
+    @Autowired
+    CAWomanSweatshirtsScrapper caWomanSweatshirtsScrapper;
+    @Autowired
+    CAWomanSwimwearScrapper caWomanSwimwearScrapper;
+    @Autowired
+    CAWomanTrousersScrapper caWomanTrousersScrapper;
+    @Autowired
+    CAWomanUnderwearScrapper caWomanUnderwearScrapper;
 
 
+    @Override
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();
 

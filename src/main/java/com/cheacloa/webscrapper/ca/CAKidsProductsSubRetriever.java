@@ -1,7 +1,7 @@
 package com.cheacloa.webscrapper.ca;
 
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.Retriever;
+import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.ca.kids.*;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,18 +11,29 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
-public class CAKidsProductsRetriever implements Retriever {
-    @Autowired CABabiesClothingScrapper caBabiesClothingScrapper;
-    @Autowired CABabiesNewbornScrapper caBabiesNewbornScrapper;
-    @Autowired CAKidAccessoriesSocksShoesScrapper caKidAccessoriesSocksShoesScrapper;
-    @Autowired CAKidBottomsScrapper caKidBottomsScrapper;
-    @Autowired CAKidComicsAndBrandsScrapper caKidComicsAndBrandsScrapper;
-    @Autowired CAKidDressesAndOutfitsScrapper caKidDressesAndOutfitsScrapper;
-    @Autowired CAKidJacketsAndCoatsScrapper caKidJacketsAndCoatsScrapper;
-    @Autowired CAKidNightwearAndUnderwearScrapper caKidNightwearAndUnderwearScrapper;
-    @Autowired CAKidSwimwearScrapper caKidSwimwearScrapper;
-    @Autowired CAKidTopsScrapper caKidTopsScrapper;
+public class CAKidsProductsSubRetriever implements SubRetriever {
+    @Autowired
+    CABabiesClothingScrapper caBabiesClothingScrapper;
+    @Autowired
+    CABabiesNewbornScrapper caBabiesNewbornScrapper;
+    @Autowired
+    CAKidAccessoriesSocksShoesScrapper caKidAccessoriesSocksShoesScrapper;
+    @Autowired
+    CAKidBottomsScrapper caKidBottomsScrapper;
+    @Autowired
+    CAKidComicsAndBrandsScrapper caKidComicsAndBrandsScrapper;
+    @Autowired
+    CAKidDressesAndOutfitsScrapper caKidDressesAndOutfitsScrapper;
+    @Autowired
+    CAKidJacketsAndCoatsScrapper caKidJacketsAndCoatsScrapper;
+    @Autowired
+    CAKidNightwearAndUnderwearScrapper caKidNightwearAndUnderwearScrapper;
+    @Autowired
+    CAKidSwimwearScrapper caKidSwimwearScrapper;
+    @Autowired
+    CAKidTopsScrapper caKidTopsScrapper;
 
+    @Override
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();
 
