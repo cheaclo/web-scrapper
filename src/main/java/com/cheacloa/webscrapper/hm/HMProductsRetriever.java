@@ -42,7 +42,7 @@ public class HMProductsRetriever {
 
         System.out.println("HM products number: " + products.size()); //LOG
         System.out.println("[INFO] Hm scrapping finished"); //LOG
-        System.out.println(LocalDateTime.now()); //12:11:35
+        System.out.println(LocalDateTime.now()); //LOG
         /* TODO: send products to database */
     }
 }

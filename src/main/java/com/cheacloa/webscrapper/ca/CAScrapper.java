@@ -2,6 +2,7 @@ package com.cheacloa.webscrapper.ca;
 
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -48,24 +49,30 @@ public abstract class CAScrapper {
         List<Product> products = new LinkedList<>();
         List<WebElement> elements = driver.findElements(By.cssSelector(PRODUCT_SELECTOR));
 
-        for (WebElement element : elements) {
-            String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("innerHTML");
-            String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getAttribute("innerHTML");
-            String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getAttribute("innerHTML");
-            String shopHref = element.findElement(By.cssSelector(PRODUCT_HREF_SELECTOR)).getAttribute("href");
-            WebElement imageElement = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR));
-            String imageSrc = imageElement.getAttribute("data-src");
-            if (imageSrc == null)
-                imageSrc = imageElement.getAttribute("src");
 
-            products.add(new Product(title,
-                    extractDouble(price),
-                    extractDouble(regularPrice),
-                    shopHref,
-                    imageSrc,
-                    categories,
-                    type,
-                    shop));
+        for (WebElement element : elements) {
+            try {
+                String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("innerHTML");
+                String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getAttribute("innerHTML");
+                String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getAttribute("innerHTML");
+                String shopHref = element.findElement(By.cssSelector(PRODUCT_HREF_SELECTOR)).getAttribute("href");
+                WebElement imageElement = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR));
+                String imageSrc = imageElement.getAttribute("data-src");
+                if (imageSrc == null)
+                    imageSrc = imageElement.getAttribute("src");
+
+                products.add(new Product(title,
+                        extractDouble(price),
+                        extractDouble(regularPrice),
+                        shopHref,
+                        imageSrc,
+                        categories,
+                        type,
+                        shop));
+            }
+            catch (NoSuchElementException e) {
+                System.out.println("[WARN][CA] element not found");
+            }
         }
 
         return products;

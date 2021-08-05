@@ -2,6 +2,7 @@ package com.cheacloa.webscrapper.hm;
 
 import com.cheacloa.webscrapper.Product;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -32,20 +33,25 @@ public abstract class HMScrapper {
         List<WebElement> elements = driver.findElements(By.className(PRODUCT_CLASSNAME));
 
         for (WebElement element : elements) {
-            String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getText();
-            String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getText();
-            String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getText();
-            String shopHref = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("href");
-            String imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("data-altimage");
-            products.add(new Product(title,
-                                    extractDouble(price),
-                                    extractDouble(regularPrice),
-                                    shopHref,
-                                    imageSrc,
-                                    categories,
-                                    type,
-                                    shop));
+            try {
+                String title = element.findElement(By.cssSelector(TITLE_SELECTOR)).getText();
+                String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getText();
+                String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getText();
+                String shopHref = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("href");
+                String imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("data-altimage");
+                products.add(new Product(title,
+                                        extractDouble(price),
+                                        extractDouble(regularPrice),
+                                        shopHref,
+                                        imageSrc,
+                                        categories,
+                                        type,
+                                        shop));
+            } catch (NoSuchElementException e) {
+                System.out.println("[WARN][HM] element not found");
+            }
         }
+
 
         System.out.println(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0))); //LOG
         return products;
