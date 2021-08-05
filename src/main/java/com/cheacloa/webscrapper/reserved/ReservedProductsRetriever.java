@@ -2,21 +2,18 @@ package com.cheacloa.webscrapper.reserved;
 
 import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.hm.HMScrapper;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
 public class ReservedProductsRetriever {
-    private Logger log = LoggerFactory.getLogger(ReservedProductsRetriever.class);
+    private final Logger log = LoggerFactory.getLogger(ReservedProductsRetriever.class);
 
     @Autowired
     ReservedWomenProductsRetriever reservedWomenProductsRetriever;
