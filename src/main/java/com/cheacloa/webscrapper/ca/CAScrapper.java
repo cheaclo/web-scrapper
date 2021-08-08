@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class CAScrapper {
-    private Logger log = LoggerFactory.getLogger(CAScrapper.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CAScrapper.class);
 
     private final String CA_PAGE_NUMBER_PARAM = "?pagenumber=";
     private final String PAGE_NAVIGATORS_SELECTOR = "ul.pagination > li";
@@ -37,7 +37,7 @@ public abstract class CAScrapper {
         int numberOfPages = pageNavigators.size();
 
         int page = 1;
-        while(true) {
+        while (true) {
             products.addAll(scrapPage(driver));
             if (++page < numberOfPages)
                 driver.get(url + CA_PAGE_NUMBER_PARAM + page);
@@ -45,7 +45,7 @@ public abstract class CAScrapper {
                 break;
         }
 
-        log.debug(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
+        LOG.debug(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
         return products;
     }
 
@@ -73,16 +73,15 @@ public abstract class CAScrapper {
                         categories,
                         type,
                         shop));
-            }
-            catch (NoSuchElementException e) {
-                log.warn("CA element not found");
+            } catch (NoSuchElementException e) {
+                LOG.warn("CA element not found");
             }
         }
 
         return products;
     }
 
-    private double extractDouble(String arg) {
+    private static double extractDouble(String arg) {
         return Double.parseDouble(arg.replaceAll("[^0-9.]+", " ").trim());
     }
 }

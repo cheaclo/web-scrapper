@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 @Component
 public class CAProductsRetriever {
-    private final Logger log = LoggerFactory.getLogger(CAProductsRetriever.class);
+    private static final Logger LOG = LoggerFactory.getLogger(CAProductsRetriever.class);
 
     @Autowired
     private CAWomenProductsSubRetriever caWomenProductsRetriever;
@@ -27,7 +27,7 @@ public class CAProductsRetriever {
     private CustomWebDriver customWebDriver;
 
     public void retrieve() {
-        log.info("CA scrapping started");
+        LOG.info("CA scrapping started");
 
         WebDriver driver = customWebDriver.getDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -39,8 +39,8 @@ public class CAProductsRetriever {
 
         driver.close();
 
-        log.info("CA products number: " + products.size());
-        log.info("CA scrapping finished");
+        LOG.info("CA products number: " + products.size());
+        LOG.info("CA scrapping finished");
         /* TODO: send products to database */
     }
 }

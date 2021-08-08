@@ -13,7 +13,7 @@ import java.util.List;
 
 @Component
 public class ReservedProductsRetriever {
-    private final Logger log = LoggerFactory.getLogger(ReservedProductsRetriever.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ReservedProductsRetriever.class);
 
     @Autowired
     ReservedWomenProductsSubRetriever reservedWomenProductsRetriever;
@@ -28,7 +28,7 @@ public class ReservedProductsRetriever {
     private CustomWebDriver customWebDriver;
 
     public void retrieve() {
-        log.info("Reserved scrapping started");
+        LOG.info("Reserved scrapping started");
 
         WebDriver driver = customWebDriver.getDriver();
         List<Product> products = new LinkedList<>();
@@ -40,8 +40,8 @@ public class ReservedProductsRetriever {
 
         driver.close();
 
-        log.info("Reserved products number: " + products.size());
-        log.info("Reserved scrapping finished");
+        LOG.info("Reserved products number: " + products.size());
+        LOG.info("Reserved scrapping finished");
         /* TODO: send products to database */
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 
 @Component
 public class HMProductsRetriever {
-    private final Logger log = LoggerFactory.getLogger(HMProductsRetriever.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HMProductsRetriever.class);
 
     @Autowired
     private HMWomenProductsSubRetriever ladiesProductsRetriever;
@@ -29,7 +29,7 @@ public class HMProductsRetriever {
     private CustomWebDriver customWebDriver;
 
     public void retrieve() {
-        log.info("Hm scrapping started");
+        LOG.info("Hm scrapping started");
 
         WebDriver driver = customWebDriver.getDriver();
         List<Product> products = new LinkedList<>();
@@ -41,9 +41,9 @@ public class HMProductsRetriever {
 
         driver.close();
 
-        log.info("HM products number: " + products.size());
-        log.info("Hm scrapping finished");
-        log.info("Finished at " + LocalDateTime.now());
+        LOG.info("HM products number: " + products.size());
+        LOG.info("Hm scrapping finished");
+        LOG.info("Finished at " + LocalDateTime.now());
         /* TODO: send products to database */
     }
 }

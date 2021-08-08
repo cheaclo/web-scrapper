@@ -12,7 +12,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public abstract class ReservedScrapper {
-    private Logger log = LoggerFactory.getLogger(ReservedScrapper.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ReservedScrapper.class);
 
     private final String PRODUCT_SELECTOR = "#categoryProducts > article > figure";
     private final String TITLE_SELECTOR = "div > figcaption > a";
@@ -49,15 +49,15 @@ public abstract class ReservedScrapper {
                         type,
                         shop));
             } catch (NoSuchElementException e) {
-                log.warn("Reserved element not found");
+                LOG.warn("Reserved element not found");
             }
         }
 
-        log.debug(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
+        LOG.debug(products.size() + " " + (products.isEmpty() ? "Empty" : products.get(0)));
         return products;
     }
 
-    private double extractDouble(String arg) {
+    private static double extractDouble(String arg) {
         return Double.parseDouble(arg.replaceAll("[^0-9.]+", " ").trim());
     }
 }
