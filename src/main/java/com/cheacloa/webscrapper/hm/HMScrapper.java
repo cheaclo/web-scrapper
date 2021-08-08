@@ -1,6 +1,9 @@
 package com.cheacloa.webscrapper.hm;
 
+import com.cheacloa.webscrapper.Category;
 import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.Shop;
+import com.cheacloa.webscrapper.Type;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -24,9 +27,9 @@ public abstract class HMScrapper {
 
     protected String url;
 
-    protected Product.Shop shop;
-    protected Product.Type type;
-    protected List<Product.Category> categories;
+    protected Shop shop;
+    protected Type type;
+    protected List<Category> categories;
 
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();

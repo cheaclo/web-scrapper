@@ -1,6 +1,8 @@
 package com.cheacloa.webscrapper.ca.kids;
 
-import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.Category;
+import com.cheacloa.webscrapper.Shop;
+import com.cheacloa.webscrapper.Type;
 import com.cheacloa.webscrapper.ca.CAScrapper;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +12,8 @@ import java.util.Arrays;
 public class CAKidJacketsAndCoatsScrapper extends CAScrapper {
     public CAKidJacketsAndCoatsScrapper() {
         url = "https://www.c-and-a.com/eu/en/shop/sale-kids-outerwear";
-        shop = Product.Shop.CA;
-        type = Product.Type.KID;
-        categories = Arrays.asList(Product.Category.JACKETS_AND_COATS);
+        shop = Shop.CA;
+        type = Type.KID;
+        categories = Arrays.asList(Category.JACKETS_AND_COATS);
     }
 }

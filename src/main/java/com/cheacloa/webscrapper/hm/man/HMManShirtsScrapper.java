@@ -1,7 +1,9 @@
 package com.cheacloa.webscrapper.hm.man;
 
+import com.cheacloa.webscrapper.Category;
+import com.cheacloa.webscrapper.Shop;
+import com.cheacloa.webscrapper.Type;
 import com.cheacloa.webscrapper.hm.HMScrapper;
-import com.cheacloa.webscrapper.Product;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -10,8 +12,8 @@ import java.util.Arrays;
 public class HMManShirtsScrapper extends HMScrapper {
     public HMManShirtsScrapper() {
         url = "https://www2.hm.com/en_gb/sale/men/shirts.html";
-        shop = Product.Shop.HM;
-        type = Product.Type.MAN;
-        categories = Arrays.asList(Product.Category.SHIRTS_AND_BLOUSES);
+        shop = Shop.HM;
+        type = Type.MAN;
+        categories = Arrays.asList(Category.SHIRTS_AND_BLOUSES);
     }
 }
