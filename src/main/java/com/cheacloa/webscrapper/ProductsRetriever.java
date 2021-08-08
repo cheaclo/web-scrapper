@@ -3,6 +3,7 @@ package com.cheacloa.webscrapper;
 import com.cheacloa.webscrapper.ca.CAProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMProductsRetriever;
 import com.cheacloa.webscrapper.reserved.ReservedProductsRetriever;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,7 @@ import java.time.LocalDateTime;
 
 @Component
 public class ProductsRetriever {
-    private final Logger log = LoggerFactory.getLogger(ProductsRetriever.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ProductsRetriever.class);
 
     @Autowired
     CAProductsRetriever caProductsRetriever;
@@ -31,9 +32,9 @@ public class ProductsRetriever {
     private boolean runReserved;
 
     @PostConstruct
-    public void postConstruct() {
-        log.info("Scrapping started");
-        log.info("Started at " + LocalDateTime.now());
+    public void postConstruct() throws JsonProcessingException {
+        LOG.info("Scrapping started");
+        LOG.info("Started at " + LocalDateTime.now());
 
         if (runCA)
             new Thread(() -> caProductsRetriever.retrieve()).start();
@@ -42,6 +43,6 @@ public class ProductsRetriever {
         if (runReserved)
             new Thread(() -> reservedProductsRetriever.retrieve()).start();
 
-        log.info("Scrapping finished");
+        LOG.info("Scrapping finished");
     }
 }
