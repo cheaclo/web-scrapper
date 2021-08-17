@@ -1,6 +1,6 @@
 package com.cheacloa.webscrapper.ca;
 
-import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.ca.woman.*;
 import org.openqa.selenium.WebDriver;

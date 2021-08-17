@@ -1,6 +1,6 @@
-package com.cheacloa.webscrapper;
+package com.cheacloa.webscrapper.model;
 
-public enum Category {
+public enum ProductCategory {
     ACCESSORIES,
     BABIES,
     BLAZERS,

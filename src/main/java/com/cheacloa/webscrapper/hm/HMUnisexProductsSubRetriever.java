@@ -1,6 +1,6 @@
 package com.cheacloa.webscrapper.hm;
 
-import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.hm.unisex.*;
 import org.openqa.selenium.WebDriver;

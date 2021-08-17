@@ -1,8 +1,8 @@
 package com.cheacloa.webscrapper.reserved.kid;
 
-import com.cheacloa.webscrapper.Category;
-import com.cheacloa.webscrapper.Shop;
-import com.cheacloa.webscrapper.Type;
+import com.cheacloa.webscrapper.model.ProductCategory;
+import com.cheacloa.webscrapper.model.Shop;
+import com.cheacloa.webscrapper.model.ProductType;
 import com.cheacloa.webscrapper.reserved.ReservedScrapper;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +13,7 @@ public class ReservedGirlsSwimwearScrapper extends ReservedScrapper {
     public ReservedGirlsSwimwearScrapper() {
         url = "https://www.reserved.com/gb/en/sale/girls/swimwear";
         shop = Shop.RESERVED;
-        type = Type.KID;
-        categories = Arrays.asList(Category.SWIMWEAR);
+        type = ProductType.KID;
+        categories = Arrays.asList(ProductCategory.SWIMWEAR);
     }
 }

@@ -1,6 +1,6 @@
 package com.cheacloa.webscrapper.reserved;
 
-import com.cheacloa.webscrapper.Product;
+import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.reserved.kid.*;
 import org.openqa.selenium.WebDriver;

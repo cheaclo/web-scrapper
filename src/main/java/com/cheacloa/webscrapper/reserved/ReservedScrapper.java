@@ -1,9 +1,9 @@
 package com.cheacloa.webscrapper.reserved;
 
-import com.cheacloa.webscrapper.Category;
-import com.cheacloa.webscrapper.Product;
-import com.cheacloa.webscrapper.Shop;
-import com.cheacloa.webscrapper.Type;
+import com.cheacloa.webscrapper.model.ProductCategory;
+import com.cheacloa.webscrapper.model.Product;
+import com.cheacloa.webscrapper.model.Shop;
+import com.cheacloa.webscrapper.model.ProductType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -26,8 +26,8 @@ public abstract class ReservedScrapper {
     protected String url;
 
     protected Shop shop;
-    protected Type type;
-    protected List<Category> categories;
+    protected ProductType type;
+    protected List<ProductCategory> categories;
 
     public List<Product> run(WebDriver driver) {
         List<Product> products = new LinkedList<>();

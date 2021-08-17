@@ -1,8 +1,8 @@
 package com.cheacloa.webscrapper.ca.man;
 
-import com.cheacloa.webscrapper.Category;
-import com.cheacloa.webscrapper.Shop;
-import com.cheacloa.webscrapper.Type;
+import com.cheacloa.webscrapper.model.ProductCategory;
+import com.cheacloa.webscrapper.model.Shop;
+import com.cheacloa.webscrapper.model.ProductType;
 import com.cheacloa.webscrapper.ca.CAScrapper;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +13,7 @@ public class CAManJumpersAndCardigansScrapper extends CAScrapper {
     public CAManJumpersAndCardigansScrapper() {
         url = "https://www.c-and-a.com/eu/en/shop/sale-men-clothing-pullover-cardigans";
         shop = Shop.CA;
-        type = Type.MAN;
-        categories = Arrays.asList(Category.CARDIGANS_AND_JUMPERS);
+        type = ProductType.MAN;
+        categories = Arrays.asList(ProductCategory.CARDIGANS_AND_JUMPERS);
     }
 }

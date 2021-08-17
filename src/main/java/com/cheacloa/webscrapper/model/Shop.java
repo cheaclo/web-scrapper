@@ -1,4 +1,4 @@
-package com.cheacloa.webscrapper;
+package com.cheacloa.webscrapper.model;
 
 public enum Shop {
     HM,

@@ -1,4 +1,4 @@
-package com.cheacloa.webscrapper;
+package com.cheacloa.webscrapper.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,7 +13,7 @@ public class Product {
     private double regularPrice;
     private String shopHref;
     private String imageSrc;
-    private List<Category> categories;
-    private Type type;
+    private List<ProductCategory> categories;
+    private ProductType type;
     private Shop shop;
 }

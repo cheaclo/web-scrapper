@@ -1,5 +1,6 @@
 package com.cheacloa.webscrapper;
 
+import com.cheacloa.webscrapper.model.Product;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
