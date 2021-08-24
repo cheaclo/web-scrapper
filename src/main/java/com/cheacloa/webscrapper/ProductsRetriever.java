@@ -3,6 +3,7 @@ package com.cheacloa.webscrapper;
 import com.cheacloa.webscrapper.ca.CAProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMProductsRetriever;
 import com.cheacloa.webscrapper.reserved.ReservedProductsRetriever;
+import com.cheacloa.webscrapper.service.ProductsSender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,11 +19,14 @@ public class ProductsRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(ProductsRetriever.class);
 
     @Autowired
-    CAProductsRetriever caProductsRetriever;
+    private CAProductsRetriever caProductsRetriever;
     @Autowired
-    HMProductsRetriever hmProductsRetriever;
+    private HMProductsRetriever hmProductsRetriever;
     @Autowired
-    ReservedProductsRetriever reservedProductsRetriever;
+    private ReservedProductsRetriever reservedProductsRetriever;
+
+    @Autowired
+    private ProductsSender productsSender;
 
     @Value("${run.ca}")
     private boolean runCA;
@@ -36,13 +40,14 @@ public class ProductsRetriever {
         LOG.info("Scrapping started");
         LOG.info("Started at " + LocalDateTime.now());
 
-        if (runCA)
-            new Thread(() -> caProductsRetriever.retrieve()).start();
-        if (runHM)
-            new Thread(() -> hmProductsRetriever.retrieve()).start();
-        if (runReserved)
-            new Thread(() -> reservedProductsRetriever.retrieve()).start();
-
+//        if (runCA)
+//            new Thread(() -> caProductsRetriever.retrieve()).start();
+//        if (runHM)
+//            new Thread(() -> hmProductsRetriever.retrieve()).start();
+//        if (runReserved)
+//            new Thread(() -> reservedProductsRetriever.retrieve()).start();
+        productsSender.sendProducts(null);
+        
         LOG.info("Scrapping finished");
     }
 }
