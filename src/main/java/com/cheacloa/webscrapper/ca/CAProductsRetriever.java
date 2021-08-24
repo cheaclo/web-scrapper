@@ -1,7 +1,9 @@
 package com.cheacloa.webscrapper.ca;
 
 import com.cheacloa.webscrapper.model.Product;
+import com.cheacloa.webscrapper.model.Shop;
 import com.cheacloa.webscrapper.service.CustomWebDriver;
+import com.cheacloa.webscrapper.service.ProductsSender;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,9 @@ public class CAProductsRetriever {
     @Autowired
     private CustomWebDriver customWebDriver;
 
+    @Autowired
+    private ProductsSender productsSender;
+
     public void retrieve() {
         LOG.info("CA scrapping started");
 
@@ -41,6 +46,7 @@ public class CAProductsRetriever {
 
         LOG.info("CA products number: " + products.size());
         LOG.info("CA scrapping finished");
-        /* TODO: send products to database */
+
+        productsSender.sendProducts(products, Shop.CA);
     }
 }

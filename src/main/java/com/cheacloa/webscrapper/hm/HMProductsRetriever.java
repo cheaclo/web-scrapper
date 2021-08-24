@@ -1,7 +1,9 @@
 package com.cheacloa.webscrapper.hm;
 
 import com.cheacloa.webscrapper.model.Product;
+import com.cheacloa.webscrapper.model.Shop;
 import com.cheacloa.webscrapper.service.CustomWebDriver;
+import com.cheacloa.webscrapper.service.ProductsSender;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +30,9 @@ public class HMProductsRetriever {
     @Autowired
     private CustomWebDriver customWebDriver;
 
+    @Autowired
+    private ProductsSender productsSender;
+    
     public void retrieve() {
         LOG.info("Hm scrapping started");
 
@@ -44,6 +49,7 @@ public class HMProductsRetriever {
         LOG.info("HM products number: " + products.size());
         LOG.info("Hm scrapping finished");
         LOG.info("Finished at " + LocalDateTime.now());
-        /* TODO: send products to database */
+
+        productsSender.sendProducts(products, Shop.HM);
     }
 }

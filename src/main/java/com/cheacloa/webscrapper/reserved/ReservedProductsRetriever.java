@@ -1,7 +1,9 @@
 package com.cheacloa.webscrapper.reserved;
 
 import com.cheacloa.webscrapper.model.Product;
+import com.cheacloa.webscrapper.model.Shop;
 import com.cheacloa.webscrapper.service.CustomWebDriver;
+import com.cheacloa.webscrapper.service.ProductsSender;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +29,9 @@ public class ReservedProductsRetriever {
     @Autowired
     private CustomWebDriver customWebDriver;
 
+    @Autowired
+    private ProductsSender productsSender;
+
     public void retrieve() {
         LOG.info("Reserved scrapping started");
 
@@ -42,6 +47,7 @@ public class ReservedProductsRetriever {
 
         LOG.info("Reserved products number: " + products.size());
         LOG.info("Reserved scrapping finished");
-        /* TODO: send products to database */
+
+        productsSender.sendProducts(products, Shop.RESERVED);
     }
 }

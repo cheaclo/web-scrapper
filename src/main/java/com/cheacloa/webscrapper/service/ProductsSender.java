@@ -33,7 +33,7 @@ public class ProductsSender {
     @Value("${database.clothes.url.save}")
     private String clothesDatabaseSaveUrl;
 
-    void sendProducts(List<Product> products, Shop shop) {
+    public void sendProducts(List<Product> products, Shop shop) {
         List<RequestProduct> requestProducts = ModelConverter.convertModelProductsToRequestProducts(products, Shop.HM);
         RequestProductsSave requestProductsSave = new RequestProductsSave(senderName,
                 authenticationCode,
