@@ -1,4 +1,4 @@
-package com.cheacloa.webscrapper;
+package com.cheacloa.webscrapper.service;
 
 import com.cheacloa.webscrapper.model.Product;
 import org.openqa.selenium.WebDriver;

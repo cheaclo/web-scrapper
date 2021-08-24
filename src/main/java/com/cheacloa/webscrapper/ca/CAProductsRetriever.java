@@ -1,7 +1,7 @@
 package com.cheacloa.webscrapper.ca;
 
-import com.cheacloa.webscrapper.CustomWebDriver;
 import com.cheacloa.webscrapper.model.Product;
+import com.cheacloa.webscrapper.service.CustomWebDriver;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,8 +1,8 @@
 package com.cheacloa.webscrapper.reserved;
 
 import com.cheacloa.webscrapper.model.Product;
-import com.cheacloa.webscrapper.SubRetriever;
 import com.cheacloa.webscrapper.reserved.man.*;
+import com.cheacloa.webscrapper.service.SubRetriever;
 import org.openqa.selenium.WebDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

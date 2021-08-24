@@ -1,20 +1,19 @@
-package com.cheacloa.webscrapper;
+package com.cheacloa.webscrapper.service;
 
 import com.cheacloa.webscrapper.ca.CAProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMProductsRetriever;
 import com.cheacloa.webscrapper.reserved.ReservedProductsRetriever;
-import com.cheacloa.webscrapper.service.ProductsSender;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 
-@Component
+@Service
 public class ProductsRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(ProductsRetriever.class);
 
@@ -47,7 +46,7 @@ public class ProductsRetriever {
 //        if (runReserved)
 //            new Thread(() -> reservedProductsRetriever.retrieve()).start();
         productsSender.sendProducts(null);
-        
+
         LOG.info("Scrapping finished");
     }
 }
