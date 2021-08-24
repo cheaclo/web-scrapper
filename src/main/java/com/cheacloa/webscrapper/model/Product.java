@@ -11,7 +11,7 @@ public class Product {
     private String title;
     private double price;
     private double regularPrice;
-    private String shopUrl;
+    private String productUrl;
     private String imageUrl;
     private List<ProductCategory> categories;
     private ProductType type;
