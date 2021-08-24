@@ -1,12 +1,9 @@
 package com.cheacloa.webscrapper.service;
 
 import com.cheacloa.webscrapper.model.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -38,6 +35,9 @@ public class ProductsSender {
             "    ]\n" +
             "}";
 
+    @Autowired
+    private ModelConverter modelConverter;
+
     @Value("${sender.name}")
     private String senderName;
     @Value("${sender.authentication.code}")
@@ -48,16 +48,17 @@ public class ProductsSender {
     public void sendProducts(List<Product> products) {
         System.out.println(senderName);
         System.out.println(authenticationCode);
+        
 
-        RestTemplate restTemplate = new RestTemplate();
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        HttpEntity<String> request =
-                new HttpEntity<String>(temp, headers);
-        String personResultAsJsonStr =
-                restTemplate.postForObject(clothesDatabaseSaveUrl, request, String.class);
-
-        System.out.println("Result " + personResultAsJsonStr);
+//        RestTemplate restTemplate = new RestTemplate();
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+//
+//        HttpEntity<String> request =
+//                new HttpEntity<String>(temp, headers);
+//        String personResultAsJsonStr =
+//                restTemplate.postForObject(clothesDatabaseSaveUrl, request, String.class);
+//
+//        System.out.println("Result " + personResultAsJsonStr);
     }
 }

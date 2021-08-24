@@ -1,11 +1,13 @@
 package com.cheacloa.webscrapper.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-class RequestProduct {
+@AllArgsConstructor
+public class RequestProduct {
     private String title;
     private String price;
     private String regularPrice;
