@@ -23,9 +23,6 @@ public class ProductsSender {
     private final ObjectWriter OBJECT_WRITER = new ObjectMapper().writer().withDefaultPrettyPrinter();
     private static final Logger LOG = LoggerFactory.getLogger(ProductsRetriever.class);
 
-    @Autowired
-    private ModelConverter modelConverter;
-
     @Value("${sender.name}")
     private String senderName;
     @Value("${sender.authentication.code}")
