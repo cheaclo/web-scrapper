@@ -33,6 +33,9 @@ public class ProductsSender {
     @Value("${database.clothes.url.save}")
     private String clothesDatabaseSaveUrl;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     public void sendProducts(List<Product> products, Shop shop) {
         List<RequestProduct> requestProducts = ModelConverter.convertModelProductsToRequestProducts(products, Shop.HM);
         RequestProductsSave requestProductsSave = new RequestProductsSave(senderName,
@@ -42,7 +45,6 @@ public class ProductsSender {
 
         try {
             String jsonRequestProductsSave = OBJECT_WRITER.writeValueAsString(requestProductsSave);
-            RestTemplate restTemplate = new RestTemplate();
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
 
