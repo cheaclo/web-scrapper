@@ -3,7 +3,6 @@ package com.cheacloa.webscrapper.service;
 import com.cheacloa.webscrapper.ca.CAProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMProductsRetriever;
 import com.cheacloa.webscrapper.reserved.ReservedProductsRetriever;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ public class ProductsRetriever {
     private boolean runReserved;
 
     @PostConstruct
-    public void postConstruct() throws JsonProcessingException {
+    public void postConstruct() {
         LOG.info("Scrapping started");
         LOG.info("Started at " + LocalDateTime.now());
 

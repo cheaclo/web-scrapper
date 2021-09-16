@@ -34,7 +34,7 @@ public class ProductsSender {
     private RestTemplate restTemplate;
 
     public void sendProducts(List<Product> products, Shop shop) {
-        List<RequestProduct> requestProducts = ModelConverter.convertModelProductsToRequestProducts(products, shop);
+        List<RequestProduct> requestProducts = ModelConverter.convertModelProductsToRequestProducts(products);
         RequestProductsSave requestProductsSave = new RequestProductsSave(senderName,
                 authenticationCode,
                 shop.toString(),

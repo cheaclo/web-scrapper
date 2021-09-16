@@ -3,7 +3,6 @@ package com.cheacloa.webscrapper.service;
 import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.model.ProductCategory;
 import com.cheacloa.webscrapper.model.RequestProduct;
-import com.cheacloa.webscrapper.model.Shop;
 import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
@@ -11,7 +10,7 @@ import java.util.List;
 
 @Service
 class ModelConverter {
-    static List<RequestProduct> convertModelProductsToRequestProducts(List<Product> products, Shop shop) {
+    static List<RequestProduct> convertModelProductsToRequestProducts(List<Product> products) {
         List<RequestProduct> requestProducts = new LinkedList<>();
 
         for (Product product : products) {
