@@ -13,7 +13,7 @@ import java.util.List;
 @Component
 public class ReservedBoysProductsSubRetriever implements SubRetriever {
     @Autowired
-    ReservedBoysAccessoriesrScrapper reservedBoysAccessoriesrScrapper;
+    ReservedBoysAccessoriesScrapper reservedBoysAccessoriesrScrapper;
     @Autowired
     ReservedBoysBabyBoyScrapper reservedBoysBabyBoyScrapper;
     @Autowired

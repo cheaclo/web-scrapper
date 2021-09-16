@@ -19,7 +19,7 @@ class ModelConverter {
                     extractString(product.getRegularPrice()),
                     product.getProductUrl(),
                     product.getImageUrl(),
-                    extraxtCategories(product.getCategories()),
+                    extractCategories(product.getCategories()),
                     product.getType().toString());
             requestProducts.add(requestProduct);
         }
@@ -31,7 +31,7 @@ class ModelConverter {
         return Double.toString(arg);
     }
 
-    private static List<String> extraxtCategories(List<ProductCategory> categories) {
+    private static List<String> extractCategories(List<ProductCategory> categories) {
         List<String> stringCategories = new LinkedList<>();
         for (ProductCategory category : categories) {
             stringCategories.add(category.toString());

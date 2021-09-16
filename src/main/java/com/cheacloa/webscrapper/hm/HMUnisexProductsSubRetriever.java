@@ -21,7 +21,7 @@ public class HMUnisexProductsSubRetriever implements SubRetriever {
     @Autowired
     HMUnisexTopsScrapper hmUnisexTopsScrapper;
     @Autowired
-    HMUnisexCardagiansAndJumpersScrapper hmUnisexCardagiansAndJumpersScrapper;
+    HMUnisexCardigansAndJumpersScrapper hmUnisexCardagiansAndJumpersScrapper;
     @Autowired
     HMUnisexHoodiesAndSweatshirtsScrapper hmUnisexHoodiesAndSweatshirtsScrapper;
     @Autowired

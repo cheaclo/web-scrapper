@@ -35,7 +35,7 @@ public class HMKidsProductsSubRetriever implements SubRetriever {
     @Autowired
     HMGirlsSocksScrapper hmGirlsSocksScrapper;
     @Autowired
-    HMGirlsSportwearScrapper hmGirlsSportwearScrapper;
+    HMGirlsSportswearScrapper hmGirlsSportwearScrapper;
     @Autowired
     HMGirlsSwimwearScrapper hmGirlsSwimwearScrapper;
     @Autowired
