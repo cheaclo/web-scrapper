@@ -6,9 +6,9 @@ import com.cheacloa.webscrapper.model.RequestProductsSave;
 import com.cheacloa.webscrapper.model.Shop;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -19,6 +19,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ProductsSender {
     private final ObjectWriter OBJECT_WRITER = new ObjectMapper().writer().withDefaultPrettyPrinter();
     private static final Logger LOG = LoggerFactory.getLogger(ProductsRetriever.class);
@@ -30,8 +31,7 @@ public class ProductsSender {
     @Value("${database.clothes.url.save}")
     private String clothesDatabaseSaveUrl;
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     public void sendProducts(List<Product> products, Shop shop) {
         List<RequestProduct> requestProducts = ModelConverter.convertModelProductsToRequestProducts(products);

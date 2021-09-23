@@ -3,35 +3,26 @@ package com.cheacloa.webscrapper.ca;
 import com.cheacloa.webscrapper.ca.kids.*;
 import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.service.SubRetriever;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class CAKidsProductsSubRetriever implements SubRetriever {
-    @Autowired
-    CABabiesClothingScrapper caBabiesClothingScrapper;
-    @Autowired
-    CABabiesNewbornScrapper caBabiesNewbornScrapper;
-    @Autowired
-    CAKidAccessoriesSocksShoesScrapper caKidAccessoriesSocksShoesScrapper;
-    @Autowired
-    CAKidBottomsScrapper caKidBottomsScrapper;
-    @Autowired
-    CAKidComicsAndBrandsScrapper caKidComicsAndBrandsScrapper;
-    @Autowired
-    CAKidDressesAndOutfitsScrapper caKidDressesAndOutfitsScrapper;
-    @Autowired
-    CAKidJacketsAndCoatsScrapper caKidJacketsAndCoatsScrapper;
-    @Autowired
-    CAKidNightwearAndUnderwearScrapper caKidNightwearAndUnderwearScrapper;
-    @Autowired
-    CAKidSwimwearScrapper caKidSwimwearScrapper;
-    @Autowired
-    CAKidTopsScrapper caKidTopsScrapper;
+    private final CABabiesClothingScrapper caBabiesClothingScrapper;
+    private final CABabiesNewbornScrapper caBabiesNewbornScrapper;
+    private final CAKidAccessoriesSocksShoesScrapper caKidAccessoriesSocksShoesScrapper;
+    private final CAKidBottomsScrapper caKidBottomsScrapper;
+    private final CAKidComicsAndBrandsScrapper caKidComicsAndBrandsScrapper;
+    private final CAKidDressesAndOutfitsScrapper caKidDressesAndOutfitsScrapper;
+    private final CAKidJacketsAndCoatsScrapper caKidJacketsAndCoatsScrapper;
+    private final CAKidNightwearAndUnderwearScrapper caKidNightwearAndUnderwearScrapper;
+    private final CAKidSwimwearScrapper caKidSwimwearScrapper;
+    private final CAKidTopsScrapper caKidTopsScrapper;
 
     @Override
     public List<Product> run(WebDriver driver) {

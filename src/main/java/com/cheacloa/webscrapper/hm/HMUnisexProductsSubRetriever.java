@@ -3,49 +3,33 @@ package com.cheacloa.webscrapper.hm;
 import com.cheacloa.webscrapper.hm.unisex.*;
 import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.service.SubRetriever;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class HMUnisexProductsSubRetriever implements SubRetriever {
-    @Autowired
-    HMUnisexLastChanceScrapper lastChanceScrapper;
-    @Autowired
-    HMUnisexDressesScrapper dressesScrapper;
-    @Autowired
-    HMUnisexShirtsAndBlouesesScrapper shirtsAndBlouesesScrapper;
-    @Autowired
-    HMUnisexTopsScrapper hmUnisexTopsScrapper;
-    @Autowired
-    HMUnisexCardigansAndJumpersScrapper hmUnisexCardagiansAndJumpersScrapper;
-    @Autowired
-    HMUnisexHoodiesAndSweatshirtsScrapper hmUnisexHoodiesAndSweatshirtsScrapper;
-    @Autowired
-    HMUnisexJacketsAndCoatsScrapper hmUnisexJacketsAndCoatsScrapper;
-    @Autowired
-    HMUnisexJeansScrapper hmUnisexJeansScrapper;
-    @Autowired
-    HMUnisexTrousersAndLeggingsScrapper hmUnisexTrousersAndLeggingsScrapper;
-    @Autowired
-    HMUnisexJumpsuitsAndRompersScrapper hmUnisexJumpsuitsAndRompersScrapper;
-    @Autowired
-    HMUnisexSkirtsScrapper hmUnisexSkirtsScrapper;
-    @Autowired
-    HMUnisexSwimwearScrapper hmUnisexSwimwearScrapper;
-    @Autowired
-    HMUnisexShoesScrapper hmUnisexShoesScrapper;
-    @Autowired
-    HMUnisexAccessoriesScrapper hmUnisexAccessoriesScrapper;
-    @Autowired
-    HMUnisexBasicsScrapper hmUnisexBasicsScrapper;
-    @Autowired
-    HMUnisexShortsScrapper hmUnisexShortsScrapper;
-    @Autowired
-    HMUnisexUnderwearAndNightwearScrapper hmUnisexUnderwearAndNightwearScrapper;
+    private final HMUnisexLastChanceScrapper lastChanceScrapper;
+    private final HMUnisexDressesScrapper dressesScrapper;
+    private final HMUnisexShirtsAndBlouesesScrapper shirtsAndBlouesesScrapper;
+    private final HMUnisexTopsScrapper hmUnisexTopsScrapper;
+    private final HMUnisexCardigansAndJumpersScrapper hmUnisexCardagiansAndJumpersScrapper;
+    private final HMUnisexHoodiesAndSweatshirtsScrapper hmUnisexHoodiesAndSweatshirtsScrapper;
+    private final HMUnisexJacketsAndCoatsScrapper hmUnisexJacketsAndCoatsScrapper;
+    private final HMUnisexJeansScrapper hmUnisexJeansScrapper;
+    private final HMUnisexTrousersAndLeggingsScrapper hmUnisexTrousersAndLeggingsScrapper;
+    private final HMUnisexJumpsuitsAndRompersScrapper hmUnisexJumpsuitsAndRompersScrapper;
+    private final HMUnisexSkirtsScrapper hmUnisexSkirtsScrapper;
+    private final HMUnisexSwimwearScrapper hmUnisexSwimwearScrapper;
+    private final HMUnisexShoesScrapper hmUnisexShoesScrapper;
+    private final HMUnisexAccessoriesScrapper hmUnisexAccessoriesScrapper;
+    private final HMUnisexBasicsScrapper hmUnisexBasicsScrapper;
+    private final HMUnisexShortsScrapper hmUnisexShortsScrapper;
+    private final HMUnisexUnderwearAndNightwearScrapper hmUnisexUnderwearAndNightwearScrapper;
 
     @Override
     public List<Product> run(WebDriver driver) {

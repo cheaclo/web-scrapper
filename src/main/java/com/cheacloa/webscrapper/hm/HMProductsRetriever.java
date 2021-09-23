@@ -4,10 +4,10 @@ import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.model.Shop;
 import com.cheacloa.webscrapper.service.CustomWebDriver;
 import com.cheacloa.webscrapper.service.ProductsSender;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -15,24 +15,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class HMProductsRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(HMProductsRetriever.class);
 
-    @Autowired
-    private HMWomenProductsSubRetriever ladiesProductsRetriever;
-    @Autowired
-    private HMUnisexProductsSubRetriever unisexProductsRetriever;
-    @Autowired
-    private HMMenProductsSubRetriever menProductsRetriever;
-    @Autowired
-    private HMKidsProductsSubRetriever kidsProductsRetriever;
+    private final HMWomenProductsSubRetriever ladiesProductsRetriever;
+    private final HMUnisexProductsSubRetriever unisexProductsRetriever;
+    private final HMMenProductsSubRetriever menProductsRetriever;
+    private final HMKidsProductsSubRetriever kidsProductsRetriever;
 
-    @Autowired
-    private CustomWebDriver customWebDriver;
+    private final CustomWebDriver customWebDriver;
+    private final ProductsSender productsSender;
 
-    @Autowired
-    private ProductsSender productsSender;
-    
     public void retrieve() {
         LOG.info("Hm scrapping started");
 

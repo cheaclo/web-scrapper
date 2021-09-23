@@ -3,47 +3,32 @@ package com.cheacloa.webscrapper.ca;
 import com.cheacloa.webscrapper.ca.woman.*;
 import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.service.SubRetriever;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class CAWomenProductsSubRetriever implements SubRetriever {
-    @Autowired
-    CAWomanBlousesScrapper caWomanBlousesScrapper;
-    @Autowired
-    CAWomanBusinessWearScrapper caWomanBusinessWearScrapper;
-    @Autowired
-    CAWomanDressesAndJumpsuitsScrapper caWomanDressesAndJumpsuitsScrapper;
-    @Autowired
-    CAWomanEveningWearScrapper caWomanEveningWearScrapper;
-    @Autowired
-    CAWomanJacketsAndCoatsScrapper caWomanJacketsAndCoatsScrapper;
-    @Autowired
-    CAWomanJeansScrapper caWomanJeansScrapper;
-    @Autowired
-    CAWomanJumpersAndCardigansScrapper caWomanJumpersAndCardigansScrapper;
-    @Autowired
-    CAWomanNightwearScrapper caWomanNightwearScrapper;
-    @Autowired
-    CAWomanShirtsAndTopsScrapper caWomanShirtsAndTopsScrapper;
-    @Autowired
-    CAWomanSkirtsScrapper caWomanSkirtsScrapper;
-    @Autowired
-    CAWomanSocksAndTightsScrapper caWomanSocksAndTightsScrapper;
-    @Autowired
-    CAWomanSportswearScrapper caWomanSportswearScrapper;
-    @Autowired
-    CAWomanSweatshirtsScrapper caWomanSweatshirtsScrapper;
-    @Autowired
-    CAWomanSwimwearScrapper caWomanSwimwearScrapper;
-    @Autowired
-    CAWomanTrousersScrapper caWomanTrousersScrapper;
-    @Autowired
-    CAWomanUnderwearScrapper caWomanUnderwearScrapper;
+    private final CAWomanBlousesScrapper caWomanBlousesScrapper;
+    private final CAWomanBusinessWearScrapper caWomanBusinessWearScrapper;
+    private final CAWomanDressesAndJumpsuitsScrapper caWomanDressesAndJumpsuitsScrapper;
+    private final CAWomanEveningWearScrapper caWomanEveningWearScrapper;
+    private final CAWomanJacketsAndCoatsScrapper caWomanJacketsAndCoatsScrapper;
+    private final CAWomanJeansScrapper caWomanJeansScrapper;
+    private final CAWomanJumpersAndCardigansScrapper caWomanJumpersAndCardigansScrapper;
+    private final CAWomanNightwearScrapper caWomanNightwearScrapper;
+    private final CAWomanShirtsAndTopsScrapper caWomanShirtsAndTopsScrapper;
+    private final CAWomanSkirtsScrapper caWomanSkirtsScrapper;
+    private final CAWomanSocksAndTightsScrapper caWomanSocksAndTightsScrapper;
+    private final CAWomanSportswearScrapper caWomanSportswearScrapper;
+    private final CAWomanSweatshirtsScrapper caWomanSweatshirtsScrapper;
+    private final CAWomanSwimwearScrapper caWomanSwimwearScrapper;
+    private final CAWomanTrousersScrapper caWomanTrousersScrapper;
+    private final CAWomanUnderwearScrapper caWomanUnderwearScrapper;
 
 
     @Override

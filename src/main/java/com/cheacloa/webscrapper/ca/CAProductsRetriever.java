@@ -4,10 +4,10 @@ import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.model.Shop;
 import com.cheacloa.webscrapper.service.CustomWebDriver;
 import com.cheacloa.webscrapper.service.ProductsSender;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
@@ -15,21 +15,16 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Component
+@RequiredArgsConstructor
 public class CAProductsRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(CAProductsRetriever.class);
 
-    @Autowired
-    private CAWomenProductsSubRetriever caWomenProductsRetriever;
-    @Autowired
-    private CAMenProductsSubRetriever caMenProductsRetriever;
-    @Autowired
-    private CAKidsProductsSubRetriever caKidsProductsRetriever;
+    private final CAWomenProductsSubRetriever caWomenProductsRetriever;
+    private final CAMenProductsSubRetriever caMenProductsRetriever;
+    private final CAKidsProductsSubRetriever caKidsProductsRetriever;
 
-    @Autowired
-    private CustomWebDriver customWebDriver;
-
-    @Autowired
-    private ProductsSender productsSender;
+    private final CustomWebDriver customWebDriver;
+    private final ProductsSender productsSender;
 
     public void retrieve() {
         LOG.info("CA scrapping started");

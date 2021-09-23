@@ -3,9 +3,9 @@ package com.cheacloa.webscrapper.service;
 import com.cheacloa.webscrapper.ca.CAProductsRetriever;
 import com.cheacloa.webscrapper.hm.HMProductsRetriever;
 import com.cheacloa.webscrapper.reserved.ReservedProductsRetriever;
+import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +13,13 @@ import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 
 @Service
+@RequiredArgsConstructor
 public class ProductsRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(ProductsRetriever.class);
 
-    @Autowired
-    private CAProductsRetriever caProductsRetriever;
-    @Autowired
-    private HMProductsRetriever hmProductsRetriever;
-    @Autowired
-    private ReservedProductsRetriever reservedProductsRetriever;
+    private final CAProductsRetriever caProductsRetriever;
+    private final HMProductsRetriever hmProductsRetriever;
+    private final ReservedProductsRetriever reservedProductsRetriever;
 
     @Value("${run.ca}")
     private boolean runCA;

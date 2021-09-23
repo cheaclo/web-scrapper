@@ -3,45 +3,31 @@ package com.cheacloa.webscrapper.hm;
 import com.cheacloa.webscrapper.hm.man.*;
 import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.service.SubRetriever;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class HMMenProductsSubRetriever implements SubRetriever {
-    @Autowired
-    HMManHoodiesAndSweatshirtsScrapper hmManHoodiesAndSweatshirtsScrapper;
-    @Autowired
-    HMManTShirtsAndTanksScrapper hmManTShirtsAndTanksScrapper;
-    @Autowired
-    HMManShirtsScrapper hmManShirtsScrapper;
-    @Autowired
-    HMManTrousersScrapper hmManTrousersScrapper;
-    @Autowired
-    HMManShortsScrapper hmManShortsScrapper;
-    @Autowired
-    HMManSwimwearScrapper hmManSwimwearScrapper;
-    @Autowired
-    HMManJeansScrapper hmManJeansScrapper;
-    @Autowired
-    HMManBlazersAndSuitsScrapper hmManBlazersAndSuitsScrapper;
-    @Autowired
-    HMManNightwearAndLoungewearScrapper hmManNightwearAndLoungewearScrapper;
-    @Autowired
-    HMManAccessoriesScrapper hmManAccessoriesScrapper;
-    @Autowired
-    HMManExtendedSizesScrapper hmManExtendedSizesScrapper;
-    @Autowired
-    HMManSportswearScrapper hmManSportswearScrapper;
-    @Autowired
-    HMManSocksScrapper hmManSocksScrapper;
-    @Autowired
-    HMManBasicsScrapper hmManBasicsScrapper;
-    @Autowired
-    HMManPremiumSelectionScrapper hmManPremiumSelectionScrapper;
+    private final HMManHoodiesAndSweatshirtsScrapper hmManHoodiesAndSweatshirtsScrapper;
+    private final HMManTShirtsAndTanksScrapper hmManTShirtsAndTanksScrapper;
+    private final HMManShirtsScrapper hmManShirtsScrapper;
+    private final HMManTrousersScrapper hmManTrousersScrapper;
+    private final HMManShortsScrapper hmManShortsScrapper;
+    private final HMManSwimwearScrapper hmManSwimwearScrapper;
+    private final HMManJeansScrapper hmManJeansScrapper;
+    private final HMManBlazersAndSuitsScrapper hmManBlazersAndSuitsScrapper;
+    private final HMManNightwearAndLoungewearScrapper hmManNightwearAndLoungewearScrapper;
+    private final HMManAccessoriesScrapper hmManAccessoriesScrapper;
+    private final HMManExtendedSizesScrapper hmManExtendedSizesScrapper;
+    private final HMManSportswearScrapper hmManSportswearScrapper;
+    private final HMManSocksScrapper hmManSocksScrapper;
+    private final HMManBasicsScrapper hmManBasicsScrapper;
+    private final HMManPremiumSelectionScrapper hmManPremiumSelectionScrapper;
 
     @Override
     public List<Product> run(WebDriver driver) {

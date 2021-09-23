@@ -4,33 +4,27 @@ import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.model.Shop;
 import com.cheacloa.webscrapper.service.CustomWebDriver;
 import com.cheacloa.webscrapper.service.ProductsSender;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class ReservedProductsRetriever {
     private static final Logger LOG = LoggerFactory.getLogger(ReservedProductsRetriever.class);
 
-    @Autowired
-    ReservedWomenProductsSubRetriever reservedWomenProductsRetriever;
-    @Autowired
-    ReservedMenProductsSubRetriever reservedMenProductsRetriever;
-    @Autowired
-    ReservedGirlsProductsSubRetriever reservedGirlsProductsSubRetriever;
-    @Autowired
-    ReservedBoysProductsSubRetriever reservedBoysProductsRetriever;
+    private final ReservedWomenProductsSubRetriever reservedWomenProductsRetriever;
+    private final ReservedMenProductsSubRetriever reservedMenProductsRetriever;
+    private final ReservedGirlsProductsSubRetriever reservedGirlsProductsSubRetriever;
+    private final ReservedBoysProductsSubRetriever reservedBoysProductsRetriever;
 
-    @Autowired
-    private CustomWebDriver customWebDriver;
-
-    @Autowired
-    private ProductsSender productsSender;
+    private final CustomWebDriver customWebDriver;
+    private final ProductsSender productsSender;
 
     public void retrieve() {
         LOG.info("Reserved scrapping started");

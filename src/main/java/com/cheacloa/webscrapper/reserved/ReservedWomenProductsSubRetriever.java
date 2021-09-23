@@ -3,43 +3,30 @@ package com.cheacloa.webscrapper.reserved;
 import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.reserved.woman.*;
 import com.cheacloa.webscrapper.service.SubRetriever;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class ReservedWomenProductsSubRetriever implements SubRetriever {
-    @Autowired
-    ReservedWomanAccessoriesScrapper reservedWomanAccessoriesScrapper;
-    @Autowired
-    ReservedWomanBestsellersScrapper reservedWomanBestsellersScrapper;
-    @Autowired
-    ReservedWomanBlousesScrapper reservedWomanBlousesScrapper;
-    @Autowired
-    ReservedWomanDressesAndJumpsuitsScrapper reservedWomanDressesAndJumpsuitsScrapper;
-    @Autowired
-    ReservedWomanJacketsScrapper reservedWomanJacketsScrapper;
-    @Autowired
-    ReservedWomanJeansScrapper reservedWomanJeansScrapper;
-    @Autowired
-    ReservedWomanOutwearScrapper reservedWomanOutwearScrapper;
-    @Autowired
-    ReservedWomanShirtsScrapper reservedWomanShirtsScrapper;
-    @Autowired
-    ReservedWomanShortsScrapper reservedWomanShortsScrapper;
-    @Autowired
-    ReservedWomanSkirtsScrapper reservedWomanSkirtsScrapper;
-    @Autowired
-    ReservedWomanSweatersScrapper reservedWomanSweatersScrapper;
-    @Autowired
-    ReservedWomanSweatshirtsScrapper reservedWomanSweatshirtsScrapper;
-    @Autowired
-    ReservedWomanTrousersScrapper reservedWomanTrousersScrapper;
-    @Autowired
-    ReservedWomanTShirtsScrapper reservedWomanTShirtsScrapper;
+    private final ReservedWomanAccessoriesScrapper reservedWomanAccessoriesScrapper;
+    private final ReservedWomanBestsellersScrapper reservedWomanBestsellersScrapper;
+    private final ReservedWomanBlousesScrapper reservedWomanBlousesScrapper;
+    private final ReservedWomanDressesAndJumpsuitsScrapper reservedWomanDressesAndJumpsuitsScrapper;
+    private final ReservedWomanJacketsScrapper reservedWomanJacketsScrapper;
+    private final ReservedWomanJeansScrapper reservedWomanJeansScrapper;
+    private final ReservedWomanOutwearScrapper reservedWomanOutwearScrapper;
+    private final ReservedWomanShirtsScrapper reservedWomanShirtsScrapper;
+    private final ReservedWomanShortsScrapper reservedWomanShortsScrapper;
+    private final ReservedWomanSkirtsScrapper reservedWomanSkirtsScrapper;
+    private final ReservedWomanSweatersScrapper reservedWomanSweatersScrapper;
+    private final ReservedWomanSweatshirtsScrapper reservedWomanSweatshirtsScrapper;
+    private final ReservedWomanTrousersScrapper reservedWomanTrousersScrapper;
+    private final ReservedWomanTShirtsScrapper reservedWomanTShirtsScrapper;
 
 
     @Override

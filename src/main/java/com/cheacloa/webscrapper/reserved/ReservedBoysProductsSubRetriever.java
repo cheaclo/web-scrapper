@@ -3,29 +3,23 @@ package com.cheacloa.webscrapper.reserved;
 import com.cheacloa.webscrapper.model.Product;
 import com.cheacloa.webscrapper.reserved.kid.*;
 import com.cheacloa.webscrapper.service.SubRetriever;
+import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.WebDriver;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 import java.util.List;
 
 @Component
+@RequiredArgsConstructor
 public class ReservedBoysProductsSubRetriever implements SubRetriever {
-    @Autowired
-    ReservedBoysAccessoriesScrapper reservedBoysAccessoriesrScrapper;
-    @Autowired
-    ReservedBoysBabyBoyScrapper reservedBoysBabyBoyScrapper;
-    @Autowired
-    ReservedBoysBestsellersScrapper reservedBoysBestsellersScrapper;
-    @Autowired
-    ReservedBoysOutwearSweatersScrapper reservedBoysOutwearSweatersScrapper;
-    @Autowired
-    ReservedBoysTrousersJeansShortsScrapper reservedBoysTrousersJeansShortsScrapper;
-    @Autowired
-    ReservedBoysTshirtsShirtsScrapper reservedBoysTshirtsShirtsScrapper;
-    @Autowired
-    ReservedBoysUnderwearScrapper reservedBoysUnderwearScrapper;
+    private final ReservedBoysAccessoriesScrapper reservedBoysAccessoriesrScrapper;
+    private final ReservedBoysBabyBoyScrapper reservedBoysBabyBoyScrapper;
+    private final ReservedBoysBestsellersScrapper reservedBoysBestsellersScrapper;
+    private final ReservedBoysOutwearSweatersScrapper reservedBoysOutwearSweatersScrapper;
+    private final ReservedBoysTrousersJeansShortsScrapper reservedBoysTrousersJeansShortsScrapper;
+    private final ReservedBoysTshirtsShirtsScrapper reservedBoysTshirtsShirtsScrapper;
+    private final ReservedBoysUnderwearScrapper reservedBoysUnderwearScrapper;
 
     @Override
     public List<Product> run(WebDriver driver) {
