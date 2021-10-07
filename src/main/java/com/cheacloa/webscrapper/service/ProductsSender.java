@@ -37,14 +37,14 @@ public class ProductsSender {
         List<RequestProduct> requestProducts = ModelConverter.convertModelProductsToRequestProducts(products);
         RequestProductsSave requestProductsSave = new RequestProductsSave(senderName,
                 authenticationCode,
-                shop.toString(),
+                shop,
                 requestProducts);
 
         try {
             String jsonRequestProductsSave = OBJECT_WRITER.writeValueAsString(requestProductsSave);
             HttpHeaders headers = new HttpHeaders();
             headers.setContentType(MediaType.APPLICATION_JSON);
-
+            
             HttpEntity<String> request =
                     new HttpEntity<>(jsonRequestProductsSave, headers);
             String personResultAsJsonStr =

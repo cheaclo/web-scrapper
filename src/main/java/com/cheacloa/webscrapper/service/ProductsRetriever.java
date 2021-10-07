@@ -30,8 +30,7 @@ public class ProductsRetriever {
 
     @PostConstruct
     public void postConstruct() {
-        LOG.info("Scrapping started");
-        LOG.info("Started at " + LocalDateTime.now());
+        LOG.info("Scrapping started at " + LocalDateTime.now());
 
         if (runCA)
             new Thread(() -> caProductsRetriever.retrieve()).start();
@@ -39,7 +38,5 @@ public class ProductsRetriever {
             new Thread(() -> hmProductsRetriever.retrieve()).start();
         if (runReserved)
             new Thread(() -> reservedProductsRetriever.retrieve()).start();
-
-        LOG.info("Scrapping finished");
     }
 }

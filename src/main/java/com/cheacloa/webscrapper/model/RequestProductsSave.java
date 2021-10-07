@@ -10,6 +10,6 @@ import java.util.List;
 public class RequestProductsSave {
     private String senderName;
     private String authenticationCode;
-    private String shopName;
+    private Shop shop;
     List<RequestProduct> products;
 }
