@@ -1,9 +1,9 @@
 package com.cheacloa.webscrapper.reserved;
 
-import com.cheacloa.webscrapper.model.ProductCategory;
 import com.cheacloa.webscrapper.model.Product;
-import com.cheacloa.webscrapper.model.Shop;
+import com.cheacloa.webscrapper.model.ProductCategory;
 import com.cheacloa.webscrapper.model.ProductType;
+import com.cheacloa.webscrapper.model.Shop;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -42,7 +42,7 @@ public abstract class ReservedScrapper {
                 String price = element.findElement(By.cssSelector(PRICE_SELECTOR)).getText();
                 String regularPrice = element.findElement(By.cssSelector(REGULAR_PRICE_SELECTOR)).getText();
                 String shopHref = element.findElement(By.cssSelector(TITLE_SELECTOR)).getAttribute("href");
-                String imageSrc = driver.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("src");
+                String imageSrc = element.findElement(By.cssSelector(IMAGE_SRC_SELECTOR)).getAttribute("src");
                 products.add(new Product(title,
                         extractDouble(price),
                         extractDouble(regularPrice),
