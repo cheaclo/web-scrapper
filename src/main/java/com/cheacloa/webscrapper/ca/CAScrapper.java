@@ -17,6 +17,7 @@ import java.util.List;
 public abstract class CAScrapper {
     private static final Logger LOG = LoggerFactory.getLogger(CAScrapper.class);
 
+    private final String ROOT_PAGE = "https://www.c-and-a.com/eu/en/shop/sale";
     private final String CA_PAGE_NUMBER_PARAM = "?pagenumber=";
     private final String PAGE_NAVIGATORS_SELECTOR = "ul.pagination > li";
     private final String PRODUCT_SELECTOR = "div.product-tile.product-tile--quickwish";
@@ -36,6 +37,12 @@ public abstract class CAScrapper {
         List<Product> products = new LinkedList<>();
 
         driver.get(url);
+
+        /* If we are redirected to the root sale page, finish scrapping */
+        String currentUrl = retrieveUrl(driver.getCurrentUrl());
+        if (currentUrl.equals(ROOT_PAGE))
+            return products;
+
         List<WebElement> pageNavigators = driver.findElements(By.cssSelector(PAGE_NAVIGATORS_SELECTOR));
         int numberOfPages = pageNavigators.size();
 
@@ -86,5 +93,12 @@ public abstract class CAScrapper {
 
     private static double extractDouble(String arg) {
         return Double.parseDouble(arg.replaceAll("[^0-9.]+", " ").trim());
+    }
+
+    private static String retrieveUrl(String url) {
+        if (url.contains("?"))
+            return url.split("\\?")[0];
+        else
+            return url;
     }
 }
