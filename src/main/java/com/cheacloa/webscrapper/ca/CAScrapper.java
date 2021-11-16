@@ -21,8 +21,8 @@ public abstract class CAScrapper {
     private final String PAGE_NAVIGATORS_SELECTOR = "ul.pagination > li";
     private final String PRODUCT_SELECTOR = "div.product-tile.product-tile--quickwish";
     private final String TITLE_SELECTOR = "a > p";
-    private final String PRICE_SELECTOR = "a > div.product-tile__price > span.product-tile__price--old";
-    private final String REGULAR_PRICE_SELECTOR = "a > div.product-tile__price > span.product-tile__price--new";
+    private final String REGULAR_PRICE_SELECTOR = "a > div.product-tile__price > span.product-tile__price--old";
+    private final String PRICE_SELECTOR = "a > div.product-tile__price > span.product-tile__price--new";
     private final String PRODUCT_HREF_SELECTOR = "a";
     private final String IMAGE_SRC_SELECTOR = "a > div.product-tile__img-wrapper > picture > img";
 
