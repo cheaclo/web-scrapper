@@ -17,8 +17,8 @@ import java.util.List;
 public abstract class ReservedScrapper {
     private static final Logger LOG = LoggerFactory.getLogger(ReservedScrapper.class);
 
-    private final String PRODUCT_SELECTOR = "#categoryProducts > article > figure";
-    private final String TITLE_SELECTOR = "div > figcaption > a";
+    private final String PRODUCT_SELECTOR = "#categoryProducts > article:nth-child(2) > figure";
+    private final String TITLE_SELECTOR = "div > h3 > a";
     private final String PRICE_SELECTOR = "div > section > p.es-discount-price > span";
     private final String REGULAR_PRICE_SELECTOR = "div > section > p.es-regular-price > span";
     private final String IMAGE_SRC_SELECTOR = "a > img";
