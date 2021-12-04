@@ -1,6 +1,6 @@
 # Web Scrapping Microservice
 
-Project is microservice, which is part of Cheaclo project. The application scraps three sites: [CA](https://www.c-and-a.com/eu/en), [HM](https://www2.hm.com/en_gb), [Reserved](https://www.reserved.com/gb/en) and sends information about disocunted products to the database.
+Project is microservice, which is part of [Cheaclo](https://github.com/cheaclo/about) project. The application scraps three sites: [CA](https://www.c-and-a.com/eu/en), [HM](https://www2.hm.com/en_gb), [Reserved](https://www.reserved.com/gb/en) and sends information about disocunted products to the database.
 
 ## Tech stack
 
